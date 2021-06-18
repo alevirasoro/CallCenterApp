@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CALL CENTER", "CALL CENTER\CALL CENTER.csproj", "{62965BE2-918B-4BC6-8236-8101BD39E501}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{1462C3B2-7A6C-4553-8246-AB9ED97B8B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio", "negocio\negocio.csproj", "{C69643EC-3630-4F2B-9ABE-D61A34C56446}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{62965BE2-918B-4BC6-8236-8101BD39E501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62965BE2-918B-4BC6-8236-8101BD39E501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62965BE2-918B-4BC6-8236-8101BD39E501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1462C3B2-7A6C-4553-8246-AB9ED97B8B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1462C3B2-7A6C-4553-8246-AB9ED97B8B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1462C3B2-7A6C-4553-8246-AB9ED97B8B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1462C3B2-7A6C-4553-8246-AB9ED97B8B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69643EC-3630-4F2B-9ABE-D61A34C56446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69643EC-3630-4F2B-9ABE-D61A34C56446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69643EC-3630-4F2B-9ABE-D61A34C56446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69643EC-3630-4F2B-9ABE-D61A34C56446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
