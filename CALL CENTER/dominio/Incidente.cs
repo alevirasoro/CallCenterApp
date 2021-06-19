@@ -13,9 +13,8 @@ namespace dominio
         public string Prioridad { get; set; }
         public string Asunto { get; set; }
         public string Estado { get; set; }
-        //public string Email { get; set; }
+        public string Email { get; set; }
         public string Numero { get; set; }
         public string ComentarioCierre { get; set; }
-       
     }   
 }
