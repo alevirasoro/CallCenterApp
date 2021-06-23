@@ -15,7 +15,7 @@ namespace negocio
         private SqlDataReader lector;
 
         public AccesoDatos() {
-            conexion = new SqlConnection("data source= .\\SQLEXPRESS; initial catalog = CALLCENTER_DB; integrated security = sspi");
+            conexion = new SqlConnection("data source= .\\SQLEXPRESS; initial catalog = INCIDENTES_DB; integrated security = sspi");
             comando = new SqlCommand();
         }
 

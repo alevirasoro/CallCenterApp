@@ -150,3 +150,7 @@ C:\Users\joa_a\Documents\UTN\3ER CUATRIMESTRE\Programación 3\TPC-CALL-CENTER-Ac
 C:\Users\joa_a\Documents\UTN\3ER CUATRIMESTRE\Programación 3\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\joa_a\Documents\UTN\3ER CUATRIMESTRE\Programación 3\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\joa_a\Documents\UTN\3ER CUATRIMESTRE\Programación 3\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\obj\Debug\CALL CENTER.csproj.CopyComplete
+C:\Users\USER\Desktop\programacion\TP-Cuatrimestral\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\bin\dominio.dll
+C:\Users\USER\Desktop\programacion\TP-Cuatrimestral\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\bin\negocio.dll
+C:\Users\USER\Desktop\programacion\TP-Cuatrimestral\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\bin\dominio.pdb
+C:\Users\USER\Desktop\programacion\TP-Cuatrimestral\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\CALL CENTER\bin\negocio.pdb

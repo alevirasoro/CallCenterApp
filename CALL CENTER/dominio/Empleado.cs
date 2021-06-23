@@ -9,7 +9,7 @@ namespace dominio
     public class Empleado
     {
         public string Perfil { get; set; }
-        public string Sueldo { get; set; }
-        public string Legajo { get; set; }
+        public int Sueldo { get; set; }
+        public int Legajo { get; set; }
     }
 }

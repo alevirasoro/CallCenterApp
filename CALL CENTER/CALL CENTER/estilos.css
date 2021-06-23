@@ -1,0 +1,11 @@
+﻿table, th{
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    border: 1px solid black;
+}
+
+
+th{
+    display: table-cell;
+}
