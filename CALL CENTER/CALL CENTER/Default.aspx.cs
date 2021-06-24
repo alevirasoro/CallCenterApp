@@ -11,19 +11,9 @@ namespace CALL_CENTER
 {
     public partial class _Default : Page
     {
-        public List<Incidente>lista;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            IncidenteNegocio negocio = new IncidenteNegocio();
-            try {
-                lista = negocio.listar();
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Exception", ex.ToString());
-
-                Response.Redirect("Error.aspx");
-            }
-            }
+        }
     }
 }

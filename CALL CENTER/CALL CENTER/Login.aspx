@@ -21,7 +21,8 @@
                         <input type="checkbox" name="remember" value="1"> Recordarme 
                         <span></span>
                     </label>
-                <input type="submit" class="btnEnviar" value="Ingresar"/>
+                <%--<input type="submit" class="btnEnviar" value="Ingresar" />--%>
+                <a class="btnEnviar" href="Default.aspx">Ingresar</a>
         </div>
     </form>
 </body>
