@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-        <link href="estilos.css" rel="stylesheet">
+    <link href="estilos.css" rel="stylesheet"/>
     <title>Bienvenido!</title>
 
 </head>
@@ -22,7 +22,7 @@
                         <span></span>
                     </label>
                 <%--<input type="submit" class="btnEnviar" value="Ingresar" />--%>
-                <a class="btnEnviar" href="Default.aspx">Ingresar</a>
+                <a class="btnEnviar" href="Incidentes.aspx">Ingresar</a>
         </div>
     </form>
 </body>

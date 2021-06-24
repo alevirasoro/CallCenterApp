@@ -12,8 +12,8 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <link href="estilos.css" rel="stylesheet">
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="estilos.css" rel="stylesheet"/>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -39,58 +39,66 @@
             </Scripts>
         </asp:ScriptManager>
         <!-- NAVBAR ----->
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">NOMBRE DE CALLCENTER</a>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="Login.aspx">Desloguearse</a>
-    </li>
-  </ul>
-</nav>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">NOMBRE DE CALLCENTER</a>
+            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="Login.aspx">Desloguearse</a>
+                </li>
+            </ul>
+        </nav>
         <!-- FIN NAVBAR -->
-
         <!-- SIDEBAR INICIO----->
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-            <a class="nav-link active" href="/">
-              <span data-feather="home"></span>
-              Perfil <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="Incidentes.aspx">
-              <span data-feather="home"></span>
-              Incidentes <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Clientes.aspx">
-              <span data-feather="file"></span>
-              Clientes
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Usuarios.aspx">
-              <span data-feather="shopping-cart"></span>
-              Usuarios
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Configuraciones.aspx">
-              <span data-feather="users"></span>
-              Configuraciones
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-      <!-- SIDEBAR FIN --->
-        <div class="container body-content">
+        <div class="sidebar">
+            <a class="Active" href="Incidentes.aspx">Incidentes</a>
+            <a href="Clientes.aspx">Clientes</a>
+            <a href="Usuarios.aspx">Usuarios</a>
+            <a href="Configuraciones.aspx">Configuraciones</a>
+        </div>
+        <!-- SIDEBAR FIN --->
+
+
+
+
+        <%--<div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="sidebar-sticky pt-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="Incidentes.aspx">
+                                    <span data-feather="home"></span>
+                                    Incidentes <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Clientes.aspx">
+                                    <span data-feather="file"></span>
+                                    Clientes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Usuarios.aspx">
+                                    <span data-feather="shopping-cart"></span>
+                                    Usuarios
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Configuraciones.aspx">
+                                    <span data-feather="users"></span>
+                                    Configuraciones
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>--%>
+
+        <!-- Page content -->
+
+        <div class="content body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
@@ -98,7 +106,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
-      </div>
     </form>
 </body>
 </html>
