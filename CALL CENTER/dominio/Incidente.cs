@@ -8,14 +8,14 @@ namespace dominio
 {
     public class Incidente
     {
-        public string Cliente { get; set; }
-        public long EmpleadoLegajo { get; set; }
-        public string Tipo { get; set; }
-        public string Prioridad { get; set; }
+        public Empleado EmpleadoLegajo { get; set; }
+        public Cliente Cliente { get; set; }
+        public Tipo Tipo { get; set; } 
+        public Prioridad Prioridad { get; set; }
         public string Asunto { get; set; }
-        public string Estado { get; set; }
+        public Estado Estado { get; set; }
         public string Email { get; set; }
-        public long ID { get; set; }
+        public long Numero { get; set; }
         public string ComentarioCierre { get; set; }
     }   
 }

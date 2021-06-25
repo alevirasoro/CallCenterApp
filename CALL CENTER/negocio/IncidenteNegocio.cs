@@ -23,9 +23,9 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Incidente aux = new Incidente();
-                    aux.ID = (long)datos.Lector["Numero"];
-                    aux.EmpleadoLegajo = (long)datos.Lector["Empleado"];
-                    aux.Cliente = (string)datos.Lector["Cliente"];
+                    aux.Numero = (long)datos.Lector["Numero"];
+                    aux.EmpleadoLegajo = (Empleado)datos.Lector["Empleado"];
+                    aux.Cliente = (Cliente)datos.Lector["Cliente"];
                     lista.Add(aux);
                 }
 

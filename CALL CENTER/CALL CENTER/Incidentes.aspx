@@ -21,7 +21,7 @@
                 {%>
             <tr>
                 <td><%: DateTime.Now %></td>
-                <td><%=item.ID %></td>
+                <td><%=item.Numero %></td>
                 <td><%=item.Cliente %></td>
             </tr>
             <% } %>
