@@ -23,6 +23,8 @@
                 <td><%: DateTime.Now %></td>
                 <td><%=item.Numero %></td>
                 <td><%=item.Cliente %></td>
+                <%--<td><%=item.EmpleadoLegajo.ID %></td>--%>
+
             </tr>
             <% } %>
             </tbody>
