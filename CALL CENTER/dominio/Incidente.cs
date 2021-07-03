@@ -17,5 +17,7 @@ namespace dominio
         public string Email { get; set; }
         public long Numero { get; set; }
         public string ComentarioCierre { get; set; }
+        public DateTime Fecha { get; set; }
+
     }   
 }
