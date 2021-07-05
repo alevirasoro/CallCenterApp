@@ -4,66 +4,47 @@
 
     <div class="titulo">
         <h3>Listado de Incidentes</h3>
-        <p>se listan todos los incidentes en una grilla aca</p>
     </div>
 
     <button type="button" class="btn btn-primary">Nuevo Indicente</button>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-sm border border-primary">
-                Fecha
-            </div>
-            <div class="col-sm border border-primary">
-                Número
-            </div>
-            <div class="col-sm border border-primary">
-                Cliente
-            </div>
-            <div class="col-sm border border-primary">
-                Asunto
-            </div>
-            <div class="col-sm border border-primary">
-                Estado
-            </div>
-            <div class="col-sm border border-primary">
-                Acciones
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <% foreach (dominio.Incidente item in lista)
-            {%>
-        <div class="row">
-            <div class="col-sm border border-primary">
-                <%= item.Fecha.ToString("dd/MM/yyyy") %>
-            </div>
-            <div class="col-sm border border-primary">
-                <%=item.Numero %>
-            </div>
-            <div class="col-sm border border-primary">
-                <%=item.Cliente %>
-            </div>
-            <div class="col-sm border border-primary">
-                Asunto descripcion
-            </div>
-            <div class="col-sm border border-primary">
-                Estado
-            </div>
-            <div class="col-sm border border-primary">
-                <div class="dropdown">
-                    <button class="dropbtn">Acciones</button>
-                    <div class="dropdown-content">
-                        <a href="#">Modificar</a>
-                        <a href="#">Eliminar</a>
-                        <a href="#">Ver Detalle</a>
-                    </div>
-                </div>
+    <button type="button" class="btn btn-primary">Resolver Indicente</button>
+    <button type="button" class="btn btn-primary">Cerrar Incidente</button>
 
-            </div>
-        </div>
-
-        <% } %>
+    <div class="tablausuario justify-content">
+        <table id="example" class="display" style="width: 100%">
+            <thead class="table-dark">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Número</th>
+                    <th>Cliente</th>
+                    <th>Asunto</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% foreach (dominio.Incidente item in lista)
+                    {%>
+                <tr>
+                    <td><%= item.Fecha.ToString("dd/MM/yyyy") %></td>
+                    <td><%=item.Numero %></td>
+                    <td><%=item.Cliente %></td>
+                    <td>Asunto descripcion</td>
+                    <td>Estado</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn">Acciones</button>
+                            <div class="dropdown-content">
+                                <a href="#">Modificar</a>
+                                <a href="#">Eliminar</a>
+                                <a href="#">Ver Detalle</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
 
 
