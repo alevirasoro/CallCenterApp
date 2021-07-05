@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="CALL_CENTER.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Nombre del usuario</h1>
+    <div class="titulo">
+        <h1>Nombre del usuario</h1>
+    </div>
+
+
     <h3>Tipo de usuario</h3>
     <h3>Información de registro</h3>
     <h3>Cambiar contraseña</h3>
