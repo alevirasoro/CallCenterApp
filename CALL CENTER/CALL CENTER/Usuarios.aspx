@@ -2,13 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="titulo">
-        <h1>Nombre del usuario</h1>
+        <h1>Usuarios</h1>
     </div>
 
-
-    <h3>Tipo de usuario</h3>
-    <h3>Información de registro</h3>
-    <h3>Cambiar contraseña</h3>
     Si tiene permisos muestra todos los usurios sino solo el suyo
     <button type="button" class="btn btn-primary">Administrar</button>
 
