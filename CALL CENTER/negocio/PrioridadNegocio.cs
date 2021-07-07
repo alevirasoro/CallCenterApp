@@ -15,8 +15,8 @@ namespace negocio
 
             try
             {
-                string valores = "values(2,'" + nuevo.PrioridadIncidente + "')";
-                datos.setearConsulta("INSERT INTO PRIORIDADES (ID, PrioridadIncidente)" + valores);
+                string valores = "values('" + nuevo.PrioridadIncidente + "')";
+                datos.setearConsulta("INSERT INTO PRIORIDADES (PrioridadIncidente)" + valores);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
