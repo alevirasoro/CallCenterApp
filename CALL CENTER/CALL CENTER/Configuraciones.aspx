@@ -14,12 +14,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+      <!--      <form>-->
               <div class="form-group">
                 <label for="nombreTipo" class="col-form-label">Tipo:</label>
                 <asp:TextBox ID="nombreTipo" class="form-control" type="text" runat="server"></asp:TextBox>
               </div>
-            </form>
+          <!--       </form>-->
           </div>
           <div class="modal-footer">
               <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardarTipo" OnClick="guardarTipo" runat="server" />
@@ -27,6 +27,7 @@
             </div>
         </div>
       </div>
+
 
     <!--NUEVA PRIORIDAD-->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPrioridad">Agregar Prioridad</button>
