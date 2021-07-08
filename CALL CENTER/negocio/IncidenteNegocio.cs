@@ -24,7 +24,7 @@ namespace negocio
                 {
                     Incidente aux = new Incidente();
                     aux.Numero = (int)datos.Lector["Numero"];
-                    aux.Cliente = new Cliente((string)datos.Lector["Cliente"].ToString());
+                    aux.Cliente = new Cliente((int)datos.Lector["Cliente"]);
                     aux.Asunto = (string)datos.Lector["Asunto"];
                     aux.Fecha = (DateTime)datos.Lector["Fecha"];
                     //aux.Asunto = (string)datos.Lector["EmpleadoLegajo"].ToString(); asi funciona pero no es la idea

@@ -12,10 +12,7 @@ namespace CALL_CENTER
     public partial class WebForm2 : System.Web.UI.Page
     {
         protected Cliente cli = null;
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
-        }
         protected void guardarCliente(object sender, EventArgs e)
         {
             ClienteNegocio clienteNegocio = new ClienteNegocio();
@@ -23,7 +20,7 @@ namespace CALL_CENTER
             try
             {
                 if (cli == null)
-                    cli = new Cliente("55");
+                    cli = new Cliente(5);
                 cli.Nombre = clienteName.Text;
                 cli.Apellido = clienteApe.Text;
                 cli.Email = clienteMail.Text;
@@ -41,6 +38,22 @@ namespace CALL_CENTER
                 Response.Redirect("Error.aspx");
             }
         }
+        public List<Cliente> lista;
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
+            ClienteNegocio negocio = new ClienteNegocio();
+            try
+            {
+                lista = negocio.listar();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
+
+                Response.Redirect("Error.aspx");
+            }
+
+        }
     }
 }
