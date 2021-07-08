@@ -29,6 +29,8 @@ namespace CALL_CENTER
 
                 tip.TipoIncidente = nombreTipo.Text;
                 tipo.agregar(tip);
+
+                Response.Write("<script>alert('Agregado correctamente');</script>");
             }
             catch (Exception ex)
             {
@@ -48,6 +50,8 @@ namespace CALL_CENTER
 
                 pri.PrioridadIncidente = nombrePrioridad.Text;
                 prioridad.agregar(pri);
+
+                Response.Write("<script>alert('Agregado correctamente');</script>");
             }
             catch (Exception ex)
             {

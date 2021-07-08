@@ -31,6 +31,8 @@ namespace CALL_CENTER
                 cli.DNI = clienteDni.Text;
 
                 clienteNegocio.agregarCliente(cli);
+
+                Response.Write("<script>alert('Agregado correctamente');</script>");
             }
             catch (Exception ex)
             {
