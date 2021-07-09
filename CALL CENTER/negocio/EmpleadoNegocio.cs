@@ -45,7 +45,7 @@ namespace negocio
             try
             {
                 string valores = "values('" + nuevo.Nombre + "', '" + nuevo.Apellido + "', '" + nuevo.Email + "','" + nuevo.Telefono + "','" + nuevo.DNI + "', '" + nuevo.Perfil.ID +"')";
-                datos.setearConsulta("INSERT INTO CLIENTES (Nombre, Apellido, Email, Telefono, DNI)" + valores);
+                datos.setearConsulta("INSERT INTO EMPLEADOS (Nombre, Apellido, Email, Telefono, DNI, IDPerfil)" + valores);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

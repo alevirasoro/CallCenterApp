@@ -55,13 +55,13 @@ namespace CALL_CENTER
                 emp.Email = usuMail.Text;
                 emp.Telefono = usuTel.Text;
                 emp.DNI = usuDni.Text;
-                int id = int.Parse(ddlPerfilUsuario.SelectedItem.Value);
-                emp.Perfil.ID = id;
-                emp.Perfil.TipoPerfil = ddlPerfilUsuario.DataTextField;
+                emp.Perfil = new Perfil(ddlPerfilUsuario.DataTextField);
+                emp.Perfil.ID = int.Parse(ddlPerfilUsuario.SelectedItem.Value);
 
                 EmpleadoNegocio.agregarUsuario(emp);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
+                Response.Redirect("Usuarios.aspx")
             }
             catch (Exception ex)
             {
