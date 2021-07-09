@@ -10,7 +10,8 @@ namespace dominio
     {
         public long ID { get; set; }
         public Perfil Perfil { get; set; }
-        public Empresa Empresa { get; set; }
+
+       // public Empresa Empresa { get; set; }
        
     }
 }

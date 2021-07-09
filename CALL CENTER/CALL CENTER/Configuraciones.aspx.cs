@@ -54,6 +54,7 @@ namespace CALL_CENTER
                 tipo.agregar(tip);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
+                Response.Redirect("Configuraciones.aspx");
             }
             catch (Exception ex)
             {
@@ -75,6 +76,8 @@ namespace CALL_CENTER
                 prioridad.agregar(pri);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
+
+                Response.Redirect("Configuraciones.aspx");
             }
             catch (Exception ex)
             {
@@ -84,7 +87,7 @@ namespace CALL_CENTER
             }
         }
 
-        //FUNCION ELIMINAR
+        //FUNCION ELIMINAR PRIORIDAD
         public void btnEliminar2_Click(object sender, EventArgs e)
         {
             int id = int.Parse(ddlPrioridades.SelectedItem.Value);
@@ -92,12 +95,26 @@ namespace CALL_CENTER
             try
             {
                 prioridad.eliminar(id);
+                Response.Redirect("Configuraciones.aspx");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
+        public void btnEliminar1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(ddlTipos.SelectedItem.Value);
+            TipoNegocio tipo = new TipoNegocio();
+            try
+            {
+                tipo.eliminar(id);
+                Response.Redirect("Configuraciones.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

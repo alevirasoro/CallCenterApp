@@ -55,6 +55,10 @@ namespace negocio
             {
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
         public void eliminar(int id)
         {
