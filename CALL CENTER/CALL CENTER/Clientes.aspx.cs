@@ -55,5 +55,22 @@ namespace CALL_CENTER
             }
 
         }
+        public void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClienteNegocio cliente = new ClienteNegocio();
+                var argument = ((Button)sender).CommandArgument;
+                int id = int.Parse(argument);
+                cliente.eliminarCliente(3);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
+            Response.Redirect("Usuarios.aspx");
+
+        }
     }
 }

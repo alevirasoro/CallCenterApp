@@ -77,7 +77,7 @@
                   <% foreach (dominio.Empleado item in lista)
                     {%>
                 <tr>
-                    <td><%=item.ID %></td>
+                    <td id="ID"><%=item.ID %></td>
                     <td><%=item.Nombre %></td>
                     <td><%=item.Apellido %></td>
                     <td><%=item.DNI %></td>
@@ -90,7 +90,7 @@
                             <button class="dropbtn">Acciones</button>
                             <div class="dropdown-content">
                                 <a href="#">Modificar</a>
-                                <a href="#">Eliminar</a>
+                                <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminar2_Click" CommandArgument='<%#Eval("ID")%>' runat="server" />
                                 <a href="#">Ver Detalle</a>
                             </div>
                         </div>

@@ -96,6 +96,24 @@ namespace negocio
             }
 
         }
+        public void eliminarUsuario(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Delete From EMPLEADOS Where ID = " + id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
     }
 }
 

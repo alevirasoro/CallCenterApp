@@ -77,6 +77,7 @@ namespace CALL_CENTER
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
 
+                //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
                 Response.Redirect("Configuraciones.aspx");
             }
             catch (Exception ex)

@@ -61,7 +61,7 @@ namespace CALL_CENTER
                 EmpleadoNegocio.agregarUsuario(emp);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
-                Response.Redirect("Usuarios.aspx")
+                
             }
             catch (Exception ex)
             {
@@ -69,6 +69,28 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
             }
-        }       
+
+            //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
+            Response.Redirect("Usuarios.aspx");
+        }
+        public void btnEliminar2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EmpleadoNegocio empleado = new EmpleadoNegocio();
+                string argument = ((Button)sender).CommandArgument;
+                int id = int.Parse(argument);
+                empleado.eliminarUsuario(7);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
+            Response.Redirect("Usuarios.aspx");
+
+        }
+
+
     }
 }
