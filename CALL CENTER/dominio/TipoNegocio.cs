@@ -30,7 +30,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
         public List<Tipo> listarTipos()
         {
             List<Tipo> lista = new List<Tipo>();
@@ -38,21 +37,30 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select A.ID Id, A.TipoIncidente TipoIncidente from TIPOS A");
+                datos.setearConsulta("select A.ID ID, A.TipoIncidente Tipo from TIPOS A");
                 datos.ejecutarLectura();
+
                 while (datos.Lector.Read())
                 {
                     aux = new Tipo();
                     aux.ID = (int)datos.Lector["ID"];
-                    aux.TipoIncidente = datos.Lector["TipoIncidente"].ToString();
-
+                    aux.TipoIncidente = (string)datos.Lector["TipoIncidente"];
                     lista.Add(aux);
                 }
+
                 return lista;
             }
             catch (Exception ex)
             {
+                Session.Add("Exception", ex.ToString());
+
+                Response.Redirect("Error.aspx");
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
             }
         }
     }

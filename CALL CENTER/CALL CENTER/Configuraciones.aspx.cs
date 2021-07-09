@@ -16,8 +16,31 @@ namespace CALL_CENTER
         protected Prioridad pri = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            TipoNegocio tipoNegocio = new TipoNegocio();
+            PrioridadNegocio prioridad = new PrioridadNegocio();
+            try
+            {
+                if(!IsPostBack)
+                {
+                    ddlTipos.DataSource = tipoNegocio.listarTipos();
+                    ddlTipos.DataTextField = "TipoIncidente";
+                    ddlTipos.DataValueField = "ID";
+                    ddlTipos.DataBind();
+                    ddlPrioridades.DataSource = prioridad.listarPrioridades();
+                    ddlPrioridades.DataTextField = "PrioridadIncidente";
+                    ddlPrioridades.DataValueField = "ID";
+                    ddlPrioridades.DataBind();
+                }
+            }
+            catch(Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
 
+                Response.Redirect("Error.aspx");
+
+            }
         }
+        //FUNCIONES DE GUARDADO
         protected void guardarTipo(object sender, EventArgs e)
         {
             TipoNegocio tipo = new TipoNegocio();
@@ -60,5 +83,21 @@ namespace CALL_CENTER
                 Response.Redirect("Error.aspx");
             }
         }
+
+        //FUNCION ELIMINAR
+        public void btnEliminar2_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(ddlPrioridades.SelectedItem.Value);
+            PrioridadNegocio prioridad = new PrioridadNegocio();
+            try
+            {
+                prioridad.eliminar(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

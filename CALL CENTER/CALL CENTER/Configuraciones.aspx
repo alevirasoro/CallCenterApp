@@ -2,9 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+
+    <h2>Tipos</h2>
+    
+    <!--DROPDOWN PARA ELIMINAR-->
+    <asp:DropDownList runat="server" ID="ddlTipos" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
+
     <!--NUEVO TIPO-->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTipo">Agregar Tipo</button>
-
+                <asp:Button Text="Eliminar" CssClass="btn btn-primary" ID="Button1" OnClick="btnEliminar2_Click" CommandArgument='<%#Eval("Id")%>' runat="server" />
     <div class="modal fade" id="modalTipo" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -30,9 +36,12 @@
     </div>
 
 
+    <h2>Prioridades</h2>
+        <asp:DropDownList runat="server" ID="ddlPrioridades" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
+
     <!--NUEVA PRIORIDAD-->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPrioridad">Agregar Prioridad</button>
-
+            <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminar2_Click" runat="server" />
     <div class="modal fade" id="modalPrioridad" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
