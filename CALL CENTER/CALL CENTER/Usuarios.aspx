@@ -5,9 +5,9 @@
         <h1>Usuarios</h1>
     </div>
 
-    Si tiene permisos muestra todos los usurios sino solo el suyo
+    Si tiene permisos muestra todos los usuarios sino solo el suyo
 
-     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalUsuario">Nuevo USuario</button>
+     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalUsuario">Nuevo Usuario</button>
     
     <div class="modal fade" id="modalUsuario" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
  <div class="modal-dialog">
@@ -67,50 +67,36 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Documento</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Teléfono</th>
                     <th>Mail</th>
+                    <th>Teléfono</th>
                     <th>Perfil</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
+                  <% foreach (dominio.Empleado item in lista)
+                    {%>
                 <tr>
-                    <td>5152</td>
-                    <td>alejandro</td>
-                    <td>virasoro</td>
-                    <td>351352</td>
-                    <td>2011/04/25</td>
-                    <td>4534532-1232-3</td>
-                    <td>mail@maidfasdf.com</td>
-                    <td>CLIENTE</td>
-                    <td><div class="dropdown">
+                    <td><%=item.ID %></td>
+                    <td><%=item.Nombre %></td>
+                    <td><%=item.Apellido %></td>
+                    <td><%=item.DNI %></td>
+                    <td><%=item.Email %></td>
+                    <td><%=item.Telefono %></td>
+                    <td><%=item.Perfil %></td>
+    
+                    <td>
+                        <div class="dropdown">
                             <button class="dropbtn">Acciones</button>
                             <div class="dropdown-content">
                                 <a href="#">Modificar</a>
                                 <a href="#">Eliminar</a>
                                 <a href="#">Ver Detalle</a>
                             </div>
-                        </div></td>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>joaquin</td>
-                    <td>achaval</td>
-                    <td>431235</td>
-                    <td>2011/04/25</td>
-                    <td>423231-123421</td>
-                    <td>mail@mail.com</td>
-                    <td>administrador</td>
-                    <td><div class="dropdown">
-                            <button class="dropbtn">Acciones</button>
-                            <div class="dropdown-content">
-                                <a href="#">Modificar</a>
-                                <a href="#">Eliminar</a>
-                                <a href="#">Ver Detalle</a>
-                            </div>
-                        </div></td>
-                </tr>
+                <% } %>
             </tbody>
         </table>
     </div>

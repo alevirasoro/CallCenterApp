@@ -11,24 +11,15 @@ namespace dominio
         public int ID { get; set; }
         public string TipoPerfil { get; set; }
 
-        //public Perfil(string tipoperfil ) //sirve de constructor para el lector
-        //{
-        //    TipoPerfil = tipoperfil;
+        public Perfil(string tipoperfil) //sirve de constructor para el lector
+        {
+            TipoPerfil = tipoperfil;
 
-        //}
-
-        //public Perfil(int id, string descripcion) //para el constructor de lectura en MarcaNegocio.cs
-        //{
-        //    ID = id;
-        //    TipoPerfil = descripcion;
-
-        //}
-
-
-        //public override string ToString()
-        //{
-        //    return TipoPerfil;
-        //}
+        }
+        public override string ToString()
+        {
+            return TipoPerfil;
+        }
 
     }
 }

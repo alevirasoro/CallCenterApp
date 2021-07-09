@@ -13,6 +13,7 @@ namespace CALL_CENTER
     public partial class WebForm3 : System.Web.UI.Page
     {
         public Empleado emp = null;
+        public List<Empleado> lista;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -29,6 +30,17 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
 
+            }
+            EmpleadoNegocio negocio = new EmpleadoNegocio();
+            try
+            {
+                lista = negocio.listar();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
+
+                Response.Redirect("Error.aspx");
             }
         }
         public void guardarUsuario(object sender, EventArgs e)
@@ -57,6 +69,6 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
             }
-        }
+        }       
     }
 }

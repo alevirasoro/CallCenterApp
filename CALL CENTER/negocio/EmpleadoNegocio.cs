@@ -21,7 +21,7 @@ namespace negocio
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    aux = new Perfil();
+                    aux = new Perfil("5");
                     aux.ID = (int)datos.Lector["ID"];
                     aux.TipoPerfil = datos.Lector["TipoPerfil"].ToString();
 
@@ -58,6 +58,43 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+        public List<Empleado> listar()
+        {
+            List<Empleado> lista = new List<Empleado>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select E.ID, E.Nombre Nombre, E.Apellido Apellido, E.Email Email, E.Telefono Telefono, E.DNI DNI, E.IDPerfil IDPerfil, P.TipoPerfil Perfil from EMPLEADOS E inner join PERFILES P on P.ID = E.IDPerfil");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Empleado aux = new Empleado();
+                    aux.ID = (int)datos.Lector["ID"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Apellido = (string)datos.Lector["Apellido"];
+                    aux.DNI = (string)datos.Lector["DNI"];
+                    aux.Email = (string)datos.Lector["Email"];
+                    aux.Telefono = (string)datos.Lector["Telefono"];
+                    aux.Perfil = new Perfil((string)datos.Lector["Perfil"]);
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
     }
 }
