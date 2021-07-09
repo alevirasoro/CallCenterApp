@@ -37,6 +37,8 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
             }
+            //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
+            Response.Redirect("Clientes.aspx");
         }
         public List<Cliente> lista;
         protected void Page_Load(object sender, EventArgs e)
@@ -61,15 +63,15 @@ namespace CALL_CENTER
             {
                 ClienteNegocio cliente = new ClienteNegocio();
                 var argument = ((Button)sender).CommandArgument;
-                int id = int.Parse(argument);
-                cliente.eliminarCliente(3);
+                int id = int.Parse("8");
+                cliente.eliminarCliente(id);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
-            Response.Redirect("Usuarios.aspx");
+            Response.Redirect("Clientes.aspx");
 
         }
     }

@@ -54,7 +54,7 @@ namespace CALL_CENTER
                 tipo.agregar(tip);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
-                Response.Redirect("Configuraciones.aspx");
+               
             }
             catch (Exception ex)
             {
@@ -62,6 +62,8 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
             }
+            //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
+            Response.Redirect("Configuraciones.aspx");
         }
         protected void guardarPrioridad(object sender, EventArgs e)
         {
@@ -76,9 +78,7 @@ namespace CALL_CENTER
                 prioridad.agregar(pri);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
-
-                //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
-                Response.Redirect("Configuraciones.aspx");
+          
             }
             catch (Exception ex)
             {
@@ -86,6 +86,8 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
             }
+            //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
+            Response.Redirect("Configuraciones.aspx");
         }
 
         //FUNCION ELIMINAR PRIORIDAD

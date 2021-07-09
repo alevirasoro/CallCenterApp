@@ -85,7 +85,7 @@
                             <div class="dropdown-content">
                                 <a href="#">Modificar</a>
                                 <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminar_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
-                                <a href="#">Ver Detalle</a>
+ 
                             </div>
                         </div>
                     </td>

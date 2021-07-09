@@ -66,8 +66,8 @@ namespace negocio
                     aux.Apellido = (string)datos.Lector["Apellido"];
                     aux.DNI = (string)datos.Lector["DNI"];
                     aux.Email = (string)datos.Lector["Email"];
-                    //aux.Telefono = (string)datos.Lector["Telefono"]; ERROR PORQUE HAY NULL EN UN REGISTRO Y NO LO ABRE
-                   
+                    aux.Telefono = (string)datos.Lector["Telefono"];
+
                     lista.Add(aux);
                 }
 
