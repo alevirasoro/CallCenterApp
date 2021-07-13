@@ -6,7 +6,7 @@
     </div>
 
     <!--BOTON QUE EJECUTA MODAL-->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCliente" data-whatever="@mdo">Agregar Cliente</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalCliente" data-whatever="@mdo">Agregar Cliente</button>
 
     <!--DISENO DE MODAL QUE VA A APARECER PARA CARGAR LOS DATOS Y DESPUES AL ACEPTAR HACE FUNCION DE AGREGAR A BD-->
     <div class="modal fade" id="modalCliente" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,7 +69,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% foreach (dominio.Cliente item in lista)
+                <%-- <% foreach (dominio.Cliente item in lista)
                     {%>
                 <tr>
                     <td><%=item.NroCliente %></td>
@@ -90,7 +90,32 @@
                         </div>
                     </td>
                 </tr>
-                <% } %>
+                <% } %>--%>
+                <asp:Repeater runat="server" ID="repetidor">
+                    <ItemTemplate>
+                        <tr>
+                            <td><%#Eval("NroCliente")%></td>
+                            <td><%#Eval("Nombre")%></td>
+                            <td><%#Eval("Apellido")%></td>
+                            <td><%#Eval("DNI")%></td>
+                            <td><%#Eval("Email")%></td>
+                            <td><%#Eval("Telefono")%></td>
+
+                            <td>
+                                <div class="dropdown">
+                                    <button class="dropbtn">Acciones</button>
+                                    <div class="dropdown-content">
+<%--                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button3" OnClick="btnModificarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />--%>
+                                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </ItemTemplate>
+                </asp:Repeater>
             </tbody>
         </table>
     </div>

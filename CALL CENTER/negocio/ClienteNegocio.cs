@@ -55,13 +55,13 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select C.ID, C.Nombre Nombre, C.Apellido Apellido, C.Email Email, C.Telefono Telefono, C.DNI DNI from CLIENTES C");
+                datos.setearConsulta("select C.ID NroCliente, C.Nombre Nombre, C.Apellido Apellido, C.Email Email, C.Telefono Telefono, C.DNI DNI from CLIENTES C");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Cliente aux = new Cliente('5');
-                    aux.NroCliente = (int)datos.Lector["ID"];
+                    aux.NroCliente = (int)datos.Lector["NroCliente"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Apellido = (string)datos.Lector["Apellido"];
                     aux.DNI = (string)datos.Lector["DNI"];

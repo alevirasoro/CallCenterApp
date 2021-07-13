@@ -14,33 +14,44 @@ namespace CALL_CENTER
     {
         public Empleado emp = null;
         public List<Empleado> lista;
+        public List<Empleado> listaempleados;
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                EmpleadoNegocio empleado = new EmpleadoNegocio();
-                ddlPerfilUsuario.DataSource = empleado.listarPerfiles();
-                ddlPerfilUsuario.DataTextField = "TipoPerfil";
-                ddlPerfilUsuario.DataValueField = "ID";
-                ddlPerfilUsuario.DataBind();
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Exception", ex.ToString());
+                try
+                {
+                    EmpleadoNegocio empleado = new EmpleadoNegocio();
+                    ddlPerfilUsuario.DataSource = empleado.listarPerfiles();
+                    ddlPerfilUsuario.DataTextField = "TipoPerfil";
+                    ddlPerfilUsuario.DataValueField = "ID";
+                    ddlPerfilUsuario.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("Exception", ex.ToString());
 
-                Response.Redirect("Error.aspx");
+                    Response.Redirect("Error.aspx");
 
+                }
             }
             EmpleadoNegocio negocio = new EmpleadoNegocio();
-            try
+            if (!IsPostBack)
             {
-                lista = negocio.listar();
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Exception", ex.ToString());
+                try
+                {
+                    lista = negocio.listar();
+                    Session.Add("listadoEmpleados", lista);
+                    listaempleados = (List<Empleado>)Session["listadoEmpleados"];
+                    repetidor.DataSource = listaempleados;
+                    repetidor.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("Exception", ex.ToString());
 
-                Response.Redirect("Error.aspx");
+                    Response.Redirect("Error.aspx");
+                }
             }
         }
         public void guardarUsuario(object sender, EventArgs e)
@@ -73,14 +84,14 @@ namespace CALL_CENTER
             //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
             Response.Redirect("Usuarios.aspx");
         }
-        public void btnEliminar2_Click(object sender, EventArgs e)
+        public void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
             try
             {
                 EmpleadoNegocio empleado = new EmpleadoNegocio();
                 string argument = ((Button)sender).CommandArgument;
                 int id = int.Parse(argument);
-                empleado.eliminarUsuario(7);
+                empleado.eliminarUsuario(id);
             }
             catch(Exception ex)
             {

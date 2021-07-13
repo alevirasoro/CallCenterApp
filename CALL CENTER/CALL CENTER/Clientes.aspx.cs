@@ -41,29 +41,37 @@ namespace CALL_CENTER
             Response.Redirect("Clientes.aspx");
         }
         public List<Cliente> lista;
+        public List<Cliente> listaclientes;
         protected void Page_Load(object sender, EventArgs e)
         {
 
             ClienteNegocio negocio = new ClienteNegocio();
-            try
+            if (!IsPostBack)
             {
-                lista = negocio.listar();
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Exception", ex.ToString());
+                try
+                {
+                    lista = negocio.listar();
+                    Session.Add("listadoClientes",lista);
+                    listaclientes = (List<Cliente>)Session["listadoClientes"]; 
+                    repetidor.DataSource = listaclientes;
+                    repetidor.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("Exception", ex.ToString());
 
-                Response.Redirect("Error.aspx");
+                    Response.Redirect("Error.aspx");
+                }
             }
 
         }
-        public void btnEliminar_Click(object sender, EventArgs e)
+        public void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             try
             {
                 ClienteNegocio cliente = new ClienteNegocio();
                 var argument = ((Button)sender).CommandArgument;
-                int id = int.Parse("8");
+                int id = int.Parse(argument);
                 cliente.eliminarCliente(id);
             }
             catch (Exception ex)

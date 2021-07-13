@@ -8,9 +8,9 @@
     Si tiene permisos muestra todos los usuarios sino solo el suyo
 
      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalUsuario">Nuevo Usuario</button>
-    
+
     <div class="modal fade" id="modalUsuario" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
@@ -74,7 +74,7 @@
                 </tr>
             </thead>
             <tbody>
-                  <% foreach (dominio.Empleado item in lista)
+                <%-- <% foreach (dominio.Empleado item in lista)
                     {%>
                 <tr>
                     <td id="ID"><%=item.ID %></td>
@@ -96,7 +96,30 @@
                         </div>
                     </td>
                 </tr>
-                <% } %>
+                <% } %>--%>
+                <asp:Repeater runat="server" ID="repetidor">
+                    <ItemTemplate>
+                        <tr>
+                            <td><%#Eval("ID")%></td>
+                            <td><%#Eval("Nombre")%></td>
+                            <td><%#Eval("Apellido")%></td>
+                            <td><%#Eval("DNI")%></td>
+                            <td><%#Eval("Email")%></td>
+                            <td><%#Eval("Telefono")%></td>
+                            <td><%#Eval("Perfil")%></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="dropbtn">Acciones</button>
+                                    <div class="dropdown-content">
+<%--                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button2" OnClick="btnModificarUsuario_Click" CommandArgument='<%#Eval("ID")%>' runat="server" />--%>
+                                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarUsuario_Click" CommandArgument='<%#Eval("ID")%>' runat="server" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </ItemTemplate>
+                </asp:Repeater>
             </tbody>
         </table>
     </div>
