@@ -17,9 +17,9 @@ namespace CALL_CENTER
         public List<Empleado> listaempleados;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                try
+                if (!IsPostBack)
                 {
                     EmpleadoNegocio empleado = new EmpleadoNegocio();
                     ddlPerfilUsuario.DataSource = empleado.listarPerfiles();
@@ -27,18 +27,18 @@ namespace CALL_CENTER
                     ddlPerfilUsuario.DataValueField = "ID";
                     ddlPerfilUsuario.DataBind();
                 }
-                catch (Exception ex)
-                {
-                    Session.Add("Exception", ex.ToString());
-
-                    Response.Redirect("Error.aspx");
-
-                }
             }
-            EmpleadoNegocio negocio = new EmpleadoNegocio();
-            if (!IsPostBack)
+            catch (Exception ex)
             {
-                try
+                Session.Add("Exception", ex.ToString());
+
+                Response.Redirect("Error.aspx");
+            }
+            
+            EmpleadoNegocio negocio = new EmpleadoNegocio();
+            try
+            {
+                if (!IsPostBack)
                 {
                     lista = negocio.listar();
                     Session.Add("listadoEmpleados", lista);
@@ -46,12 +46,12 @@ namespace CALL_CENTER
                     repetidor.DataSource = listaempleados;
                     repetidor.DataBind();
                 }
-                catch (Exception ex)
-                {
-                    Session.Add("Exception", ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
 
-                    Response.Redirect("Error.aspx");
-                }
+                Response.Redirect("Error.aspx");
             }
         }
         public void guardarUsuario(object sender, EventArgs e)
@@ -99,9 +99,6 @@ namespace CALL_CENTER
             }
             //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
             Response.Redirect("Usuarios.aspx");
-
         }
-
-
     }
 }
