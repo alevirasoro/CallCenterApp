@@ -15,6 +15,11 @@ namespace CALL_CENTER
 
         protected void guardarCliente(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid)
+            {
+                return;
+            }
             ClienteNegocio clienteNegocio = new ClienteNegocio();
 
             try
