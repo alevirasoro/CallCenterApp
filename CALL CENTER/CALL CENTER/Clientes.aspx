@@ -4,11 +4,51 @@
     <div class="titulo">
         <h3>Clientes</h3>
     </div>
-
     <!--BOTON QUE EJECUTA MODAL-->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalCliente" data-whatever="@mdo">Agregar Cliente</button>
 
     <!--DISENO DE MODAL QUE VA A APARECER PARA CARGAR LOS DATOS Y DESPUES AL ACEPTAR HACE FUNCION DE AGREGAR A BD-->
+            <script>
+                function validar() {
+                    var nombre = document.getElementById("<% =clienteName.ClientID %>").value;
+                    var apellido = document.getElementById("<% = clienteApe.ClientID %>").value;
+                    var mail = document.getElementById("<% =clienteMail.ClientID %>").value;
+                    var valido = true;
+
+                    if (nombre === "") {
+                        $("#<% =clienteName.ClientID %>").removeClass("is-valid");
+                        $("#<% =clienteName.ClientID %>").addClass("is-invalid");
+                        valido = false;
+                    }
+                    else {
+                        $("#<% =clienteName.ClientID %>").removeClass("is-invalid");
+                        $("#<% =clienteName.ClientID %>").addClass("is-valid");
+                    }
+<%--                    if (apellido === "") {
+                        $("#<% =clienteApe.ClientID %>").removeClass("is-valid");
+                        $("#<% =clienteApe.ClientID %>").addClass("is-invalid");
+                        valido = false;
+                    }
+                    else {
+                        $("#<% =clienteApe.ClientID %>").removeClass("is-invalid");
+                        $("#<% =clienteApe.ClientID %>").addClass("is-valid");
+                    }--%>
+
+                    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(mail)) {
+                        $("# <% =clienteMail.ClientID %>").removeClass("is-invalid");
+                        $("# <% =clienteMail.ClientID %>").addClass("is-valid");
+                    } else {
+                        $("# <% =clienteMail.ClientID %>").removeClass("is-valid");
+                        $("# <% =clienteMail.ClientID %>").addClass("is-invalid");
+                        valido = false;
+                    }
+
+                    return false;
+                }
+
+            
+            </script>
+
     <div class="modal fade" id="modalCliente" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -59,7 +99,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardar" OnClick="guardarCliente" runat="server" />
+                    <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardar" OnClientClick="return validar()" OnClick="guardarCliente" runat="server" />
                 </div>
             </div>
         </div>
@@ -82,7 +122,7 @@
                 <asp:Repeater runat="server" ID="repetidor">
                     <ItemTemplate>
                         <tr>
-                            <td><%#Eval("NroCliente")%></td>
+                            <td><%#Eval("NroCliente")%></td> 
                             <td><%#Eval("Nombre")%></td>
                             <td><%#Eval("Apellido")%></td>
                             <td><%#Eval("DNI")%></td>
@@ -93,7 +133,7 @@
                                 <div class="dropdown">
                                     <button class="dropbtn">Acciones</button>
                                     <div class="dropdown-content">
-                                        <%--                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button3" OnClick="btnModificarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />--%>
+                                        <%--<asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button3" OnClick="btnModificarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />--%>
                                         <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
 
                                     </div>

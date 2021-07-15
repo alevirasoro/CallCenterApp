@@ -12,7 +12,30 @@ namespace CALL_CENTER
     public partial class WebForm2 : System.Web.UI.Page
     {
         protected Cliente cli = null;
+        public List<Cliente> lista;
+        public List<Cliente> listaclientes;
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
+            ClienteNegocio negocio = new ClienteNegocio();
+            try
+            {
+                if (!IsPostBack)
+                {
+                    lista = negocio.listar();
+                    Session.Add("listadoClientes", lista);
+                    listaclientes = (List<Cliente>)Session["listadoClientes"];
+                    repetidor.DataSource = listaclientes;
+                    repetidor.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
+
+                Response.Redirect("Error.aspx");
+            }
+        }
         protected void guardarCliente(object sender, EventArgs e)
         {
             Page.Validate();
@@ -44,30 +67,6 @@ namespace CALL_CENTER
             }
             //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
             Response.Redirect("Clientes.aspx");
-        }
-        public List<Cliente> lista;
-        public List<Cliente> listaclientes;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-            ClienteNegocio negocio = new ClienteNegocio();
-            try
-            {
-                if (!IsPostBack)
-                {
-                    lista = negocio.listar();
-                    Session.Add("listadoClientes", lista);
-                    listaclientes = (List<Cliente>)Session["listadoClientes"];
-                    repetidor.DataSource = listaclientes;
-                    repetidor.DataBind();
-                }
-            }
-            catch (Exception ex)
-            {
-                Session.Add("Exception", ex.ToString());
-
-                Response.Redirect("Error.aspx");
-            }
         }
         public void btnEliminarCliente_Click(object sender, EventArgs e)
         {
