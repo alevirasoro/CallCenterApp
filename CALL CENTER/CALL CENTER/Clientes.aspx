@@ -133,7 +133,7 @@
                                 <div class="dropdown">
                                     <button class="dropbtn">Acciones</button>
                                     <div class="dropdown-content">
-                                        <%--<asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button3" OnClick="btnModificarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />--%>
+                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalCliente" ID="btnModificar" OnClick="btnModificarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
                                         <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
 
                                     </div>

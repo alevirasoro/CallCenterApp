@@ -48,17 +48,20 @@ namespace CALL_CENTER
             try
             {
                 if (cli == null)
+                {
                     cli = new Cliente(5);
-                cli.Nombre = clienteName.Text;
-                cli.Apellido = clienteApe.Text;
-                cli.Email = clienteMail.Text;
-                cli.Telefono = clienteTel.Text;
-                cli.DNI = clienteDni.Text;
+                    cli.Nombre = clienteName.Text;
+                    cli.Apellido = clienteApe.Text;
+                    cli.Email = clienteMail.Text;
+                    cli.Telefono = clienteTel.Text;
+                    cli.DNI = clienteDni.Text;
+                    clienteNegocio.agregarCliente(cli);
 
-                clienteNegocio.agregarCliente(cli);
+                    Response.Write("<script>alert('Agregado correctamente');</script>");
+                }
 
-                Response.Write("<script>alert('Agregado correctamente');</script>");
             }
+
             catch (Exception ex)
             {
                 Session.Add("Exception", ex.ToString());
@@ -84,6 +87,29 @@ namespace CALL_CENTER
             //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
             Response.Redirect("Clientes.aspx");
 
+        }
+        public void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            var argument = ((Button)sender).CommandArgument;
+            int id = int.Parse(argument);
+            try
+            {
+                cli = new Cliente(id);
+                cli.Nombre = clienteName.Text;
+                cli.Apellido = clienteApe.Text;
+                cli.Email = clienteMail.Text;
+                cli.Telefono = clienteTel.Text;
+                cli.DNI = clienteDni.Text;
+
+                clienteNegocio.modificarCliente(cli);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
+
+                Response.Redirect("Error.aspx");
+            }
         }
     }
 }

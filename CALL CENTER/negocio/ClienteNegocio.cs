@@ -85,6 +85,32 @@ namespace negocio
             }
 
         }
+        public void modificarCliente(Cliente modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("update CLIENTES set Nombre = @nombre, Apellido, = @apellido, Email = @email, Telefono = @telefono, Dni = @dni Where ID = @id");
+                datos.setearParametro("@nombre", modificar.Nombre);
+                datos.setearParametro("@apellido", modificar.Apellido);
+                datos.setearParametro("@email", modificar.Email);
+                datos.setearParametro("@telefono", modificar.Telefono);
+                datos.setearParametro("@dni", modificar.DNI);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public void eliminarCliente(int id)
         {
             AccesoDatos datos = new AccesoDatos();
