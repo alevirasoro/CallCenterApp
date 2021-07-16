@@ -91,12 +91,13 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("update CLIENTES set Nombre = @nombre, Apellido, = @apellido, Email = @email, Telefono = @telefono, Dni = @dni Where ID = @id");
+                datos.setearConsulta("update CLIENTES set Nombre = @nombre, Apellido = @apellido, Email = @email, Telefono = @telefono, Dni = @dni Where ID = @id");
                 datos.setearParametro("@nombre", modificar.Nombre);
                 datos.setearParametro("@apellido", modificar.Apellido);
                 datos.setearParametro("@email", modificar.Email);
                 datos.setearParametro("@telefono", modificar.Telefono);
-                datos.setearParametro("@dni", modificar.DNI);
+                datos.setearParametro("@dni", modificar.DNI); 
+                datos.setearParametro("@id", modificar.NroCliente);
 
                 datos.ejecutarAccion();
             }

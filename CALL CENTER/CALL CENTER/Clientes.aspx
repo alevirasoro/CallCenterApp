@@ -104,6 +104,64 @@
             </div>
         </div>
     </div>
+    <!--MODAL PARA MODIFICAR CLIENTE-->
+        <div class="modal fade" id="modalModificarCliente" tabindex="1" aria-labelledby="exampleModalLabe2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Modificar Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="client-name" class="col-form-label">Nombre:</label>
+                        <asp:TextBox ID="clienteName2" class="form-control" type="text" runat="server"></asp:TextBox>
+                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                            ControlToValidate="clienteName" ErrorMessage="Este campo es obligatorio">
+                        </asp:RequiredFieldValidator>--%>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-ape" class="col-form-label">Apellido:</label>
+                        <asp:TextBox ID="clienteApe2" class="form-control" type="text" runat="server"></asp:TextBox>
+                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                            ControlToValidate="clienteApe" ErrorMessage="Este campo es obligatorio">
+                        </asp:RequiredFieldValidator>--%>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-mail" class="col-form-label">Mail:</label>
+                        <asp:TextBox ID="clienteMail2" class="form-control" type="text" runat="server"></asp:TextBox>
+                       <%-- <asp:RequiredFieldValidator ID="rfvhouse" runat="server"
+                            ControlToValidate="clienteMail" ErrorMessage="Este campo es obligatorio">
+                        </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="remail" runat="server"
+                            ControlToValidate="clienteMail" ErrorMessage="Ingresar un formato de mail correcto"
+                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+                        </asp:RegularExpressionValidator>--%>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-tel" class="col-form-label">Telefono:</label>
+                        <asp:TextBox ID="clienteTel2" class="form-control" type="text" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-dni" class="col-form-label">DNI/CUIL/CUIT:</label>
+                        <asp:TextBox ID="clienteDni2" class="form-control" type="text" runat="server"></asp:TextBox>
+                       <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+                            ControlToValidate="clienteDni" ErrorMessage="Este campo es obligatorio">
+                        </asp:RequiredFieldValidator>
+                        <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer"
+                            ControlToValidate="clienteDni" ErrorMessage="Ingresar solo números" />--%>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnModificar"  CommandArgument='47' OnClick="btnModificarCliente_Click" runat="server" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="tablausuario justify-content">
         <table id="example" class="display" style="width: 100%">
@@ -132,8 +190,9 @@
                             <td>
                                 <div class="dropdown">
                                     <button class="dropbtn">Acciones</button>
-                                    <div class="dropdown-content">
-                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalCliente" ID="btnModificar" OnClick="btnModificarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+                                    <div class="dropdown-content">  
+                                        <asp:Button Text="Modificar2" CssClass="btn btn-danger" ID="Button5" OnClick="AgregarNroClienteSession" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalModificarCliente"  data-whatever="@mdo" ID="Button1"  OnClientClick="return false"  runat="server" />
                                         <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
 
                                     </div>

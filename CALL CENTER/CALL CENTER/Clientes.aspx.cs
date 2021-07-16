@@ -90,17 +90,20 @@ namespace CALL_CENTER
         }
         public void btnModificarCliente_Click(object sender, EventArgs e)
         {
+            //el boton de modal tiene que abrirlo y completar todos los campos. entonces aca al mandar la info la tiene, sino queda vacia
+
             ClienteNegocio clienteNegocio = new ClienteNegocio();
-            var argument = ((Button)sender).CommandArgument;
+            var argument = (String)Session["NroClienteModificar"];
             int id = int.Parse(argument);
             try
             {
                 cli = new Cliente(id);
-                cli.Nombre = clienteName.Text;
-                cli.Apellido = clienteApe.Text;
-                cli.Email = clienteMail.Text;
-                cli.Telefono = clienteTel.Text;
-                cli.DNI = clienteDni.Text;
+                cli.NroCliente = id;
+                cli.Nombre = clienteName2.Text;
+                cli.Apellido = clienteApe2.Text;
+                cli.Email = clienteMail2.Text;
+                cli.Telefono = clienteTel2.Text;
+                cli.DNI = clienteDni2.Text;
 
                 clienteNegocio.modificarCliente(cli);
             }
@@ -110,6 +113,13 @@ namespace CALL_CENTER
 
                 Response.Redirect("Error.aspx");
             }
+            Response.Redirect("Clientes.aspx");
+
+        }
+        public void AgregarNroClienteSession(object sender, EventArgs e)
+        {
+            var argument = ((Button)sender).CommandArgument;
+            Session.Add("NroClienteModificar", argument);
         }
     }
 }
