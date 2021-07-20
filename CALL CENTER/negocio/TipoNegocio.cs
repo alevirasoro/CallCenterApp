@@ -42,9 +42,9 @@ namespace negocio
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    aux = new Tipo();
+                    aux = new Tipo(datos.Lector["TipoIncidente"].ToString());
                     aux.ID = (int)datos.Lector["ID"];
-                    aux.TipoIncidente = datos.Lector["TipoIncidente"].ToString();
+                    //aux.TipoIncidente = datos.Lector["TipoIncidente"].ToString();
 
                     lista.Add(aux);
                 }

@@ -43,9 +43,9 @@ namespace negocio
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    aux = new Prioridad();
+                    aux = new Prioridad(datos.Lector["PrioridadIncidente"].ToString());
                     aux.ID = (int)datos.Lector["ID"];
-                    aux.PrioridadIncidente = datos.Lector["PrioridadIncidente"].ToString();
+                    //aux.PrioridadIncidente = datos.Lector["PrioridadIncidente"].ToString();
 
                     lista.Add(aux);
                 }

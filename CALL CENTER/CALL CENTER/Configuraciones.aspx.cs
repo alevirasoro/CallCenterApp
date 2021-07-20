@@ -48,9 +48,9 @@ namespace CALL_CENTER
             try
             {
                 if (tip == null)
-                    tip = new Tipo();
+                    tip = new Tipo(nombreTipo.Text);
 
-                tip.TipoIncidente = nombreTipo.Text;
+
                 tipo.agregar(tip);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
@@ -72,9 +72,8 @@ namespace CALL_CENTER
             try
             {
                 if (pri == null)
-                    pri = new Prioridad();
+                    pri = new Prioridad(nombrePrioridad.Text);
 
-                pri.PrioridadIncidente = nombrePrioridad.Text;
                 prioridad.agregar(pri);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");

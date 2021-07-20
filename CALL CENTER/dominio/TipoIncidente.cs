@@ -10,5 +10,9 @@ namespace dominio
     {
         public int ID { get; set; }
         public string TipoIncidente { get; set; }
+        public Tipo(string tipoIn)
+        {
+            TipoIncidente = tipoIn;
+        }
     }
 }

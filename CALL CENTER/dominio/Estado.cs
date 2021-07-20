@@ -10,5 +10,10 @@ namespace dominio
     {
         public int ID { get; set; }
         public string EstadoIncidente { get; set; }
+        public Estado(string est) {
+
+            EstadoIncidente = est;
+
+        }
     }
 }

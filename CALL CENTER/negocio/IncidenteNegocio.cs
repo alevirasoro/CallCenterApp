@@ -45,6 +45,28 @@ namespace negocio
             }
 
         }
+        public void agregar(Incidente aux)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', 1, 2, '"+ aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID +"')";
+                datos.setearConsulta("INSERT into INCIDENTES (Asunto, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)" + valores);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         
         
     }
