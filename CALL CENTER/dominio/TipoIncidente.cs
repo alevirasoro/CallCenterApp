@@ -14,5 +14,9 @@ namespace dominio
         {
             TipoIncidente = tipoIn;
         }
+        public override string ToString()
+        {
+            return TipoIncidente;
+        }
     }
 }

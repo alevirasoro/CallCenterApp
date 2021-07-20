@@ -12,15 +12,21 @@ namespace CALL_CENTER
     public partial class Incidentes : System.Web.UI.Page
     {
         public List<Incidente>lista;
+        public List<Incidente> listaincidentes;
         protected void Page_Load(object sender, EventArgs e)
         {
       
             IncidenteNegocio negocio = new IncidenteNegocio();
 
             try {
-                lista = negocio.listar();
                 if (!IsPostBack)
                 {
+                    lista = negocio.listar();
+                    Session.Add("listaIncidentes", lista);
+                    listaincidentes = (List<Incidente>)Session["listaIncidentes"];
+                    repetidor.DataSource = listaincidentes;
+                    repetidor.DataBind();
+
                     PrioridadNegocio prioridad = new PrioridadNegocio();
                     TipoNegocio tipo = new TipoNegocio();
                     EmpleadoNegocio empleado = new EmpleadoNegocio();
@@ -72,7 +78,7 @@ namespace CALL_CENTER
 
 
             negocio.agregar(incidente);
-
+            Response.Redirect("Incidentes.aspx");
 
             //EmpleadoNegocio negocio = new EmpleadoNegocio();
             //try

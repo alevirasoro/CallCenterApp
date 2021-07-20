@@ -82,6 +82,6 @@ GO
 insert into EMPLEADOS (Nombre, Apellido, Email, Telefono, DNI, IDPerfil)
 values ('Joaquin','Achaval','achaval@utn.com.ar','1534715100','23900',2)
 GO
-insert into INCIDENTES (Asunto, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)
-values ('El cliente se comunica porque tuvo un error en la factura debido a un mal calculo de la cuota mensual del sistema','07/07/21',1,2,2,1,1)
+insert into INCIDENTES (Asunto, Comentario, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)
+values ('El cliente se comunica porque tuvo un error en la factura debido a un mal calculo de la cuota mensual del sistema', '','07/07/21',1,2,2,1,1)
 

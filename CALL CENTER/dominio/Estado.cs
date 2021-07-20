@@ -15,5 +15,9 @@ namespace dominio
             EstadoIncidente = est;
 
         }
+        public override string ToString()
+        {
+            return EstadoIncidente;
+        }
     }
 }

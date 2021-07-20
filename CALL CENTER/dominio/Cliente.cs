@@ -14,6 +14,13 @@ namespace dominio
         {
              NroCliente = nrocliente;
         }
-
+        public Cliente(string apellido) //sirve de constructor para el lector
+        {
+            Apellido = apellido;
+        }
+        public override string ToString()
+        {
+            return Apellido;
+        }
     }
 }

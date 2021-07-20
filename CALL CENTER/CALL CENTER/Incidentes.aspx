@@ -18,31 +18,40 @@
                     <th>Número</th>
                     <th>Cliente</th>
                     <th>Asunto</th>
+                    <th>Tipo</th>
+                    <th>Prioridad</th>
+                    <th>Empleado</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>Comentario</th>
+                    <th>Acciones</th>          
                 </tr>
             </thead>
-            <tbody>
-                <% foreach (dominio.Incidente item in lista)
-                    {%>
-                <tr>
-                    <td><%= item.Fecha.ToString("dd/MM/yyyy") %></td>
-                    <td><%=item.Numero %></td>
-                    <td><%=item.Cliente %></td>
-                    <td>Asunto descripcion</td>
-                    <td>Estado</td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="dropbtn">Acciones</button>
-                            <div class="dropdown-content">
-                                <a href="#">Modificar</a>
-                                <a href="#">Eliminar</a>
-                                <a href="#">Ver Detalle</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <% } %>
+            <tbody>               
+                <asp:Repeater runat="server" ID="repetidor">
+                    <ItemTemplate>
+                        <tr>
+                            <td><%#Eval("Fecha")%></td> 
+                            <td><%#Eval("Numero")%></td>
+                            <td><%#Eval("Cliente")%></td>
+                            <td><%#Eval("Asunto")%></td>
+                            <td><%#Eval("Tipo")%></td>  
+                            <td><%#Eval("Prioridad")%></td>  
+                            <td><%#Eval("EmpleadoLegajo")%></td>  
+                            <td><%#Eval("Estado")%></td> 
+                            <td><%#Eval("ComentarioCierre")%></td> 
+                            <td>
+                                <div class="dropdown">
+                                    <button class="dropbtn">Acciones</button>
+                                    <div class="dropdown-content">  
+                                        <%--<asp:Button Text="Modificar2" CssClass="btn btn-danger" ID="Button5" OnClick="AgregarNroClienteSession" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalModificarCliente"  data-whatever="@mdo" ID="Button1" OnClientClick="return false" runat="server" />
+                                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />--%>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
             </tbody>
         </table>
     </div>
@@ -79,6 +88,7 @@
                         <!--LOS USUARIOS DEBERIAN ESTAR BLOQUEADOS PARA EL USUARIO COMUN-->
                         <asp:DropDownList runat="server" ID="ddlUsuarios" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
                     </div>
+                </div>
                 <div class="modal-footer">
                     <!--<button type="button" class="btn btn-primary" onclick="guardarCliente" runat="server">Guardar</button>-->
                     <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardar" OnClick="guardarIncidente" runat="server" />

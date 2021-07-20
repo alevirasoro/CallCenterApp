@@ -14,6 +14,10 @@ namespace dominio
         {
             PrioridadIncidente = prio;
         }
+        public override string ToString()
+        {
+            return PrioridadIncidente;
+        }
     }
 
 }

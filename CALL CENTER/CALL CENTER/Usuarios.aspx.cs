@@ -60,7 +60,7 @@ namespace CALL_CENTER
             try
             {
                 if (emp == null)
-                    emp = new Empleado();
+                    emp = new Empleado("a");
                 emp.Nombre = usuName.Text;
                 emp.Apellido = usuApe.Text;
                 emp.Email = usuMail.Text;

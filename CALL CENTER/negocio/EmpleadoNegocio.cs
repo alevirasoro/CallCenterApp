@@ -70,7 +70,7 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    Empleado aux = new Empleado();
+                    Empleado aux = new Empleado("a");
                     aux.ID = (int)datos.Lector["ID"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Apellido = (string)datos.Lector["Apellido"];
