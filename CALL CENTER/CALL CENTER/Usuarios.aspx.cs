@@ -66,8 +66,11 @@ namespace CALL_CENTER
                 emp.Email = usuMail.Text;
                 emp.Telefono = usuTel.Text;
                 emp.DNI = usuDni.Text;
+                //emp.TipoUsusario = int.Parse(ddlPerfilUsuario.SelectedItem.Value);
                 emp.Perfil = new Perfil(ddlPerfilUsuario.DataTextField);
                 emp.Perfil.ID = int.Parse(ddlPerfilUsuario.SelectedItem.Value);
+                emp.User = usuUser.Text;
+                emp.Pass = usuPass.Text;
 
                 EmpleadoNegocio.agregarUsuario(emp);
 

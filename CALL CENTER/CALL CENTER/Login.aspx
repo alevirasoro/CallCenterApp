@@ -22,7 +22,7 @@
                         <span></span>
                     </label>
                 <%--<input type="submit" class="btnEnviar" value="Ingresar" />--%>
-                <a class="btnEnviar" href="Incidentes.aspx">Ingresar</a>
+                <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnLogin" OnClick="btnLoginClick" runat="server" />
         </div>
     </form>
 </body>

@@ -28,7 +28,7 @@ namespace negocio
                     aux.Prioridad = new Prioridad((string)datos.Lector["Prioridad"]);
                     aux.EmpleadoLegajo = new Empleado((string)datos.Lector["EmpleadoApe"].ToString()); //asi funciona pero no es la idea
                     aux.Estado = new Estado((string)datos.Lector["Estado"]);
-                    aux.ComentarioCierre = (string)datos.Lector["Comentario"];
+                   // aux.ComentarioCierre = (string)datos.Lector["Comentario"];
 
                     lista.Add(aux);
                     //< th > Fecha </ th >

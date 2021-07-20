@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
+    public enum TipoUsuario
+    {
+        ADMIN = 1,
+        TELEFONISTA = 2,
+        SUPERVISOR = 3
+    }
     public class Empleado : Persona
     {
         public long ID { get; set; }
         public Perfil Perfil { get; set; }
+        public string User { get; set; }
+        public string Pass { get; set; }
+        public TipoUsuario TipoUsusario { get; set; }
 
         // public Empresa Empresa { get; set; }
         public Empleado(string nombre)

@@ -47,6 +47,10 @@ namespace negocio
                 string valores = "values('" + nuevo.Nombre + "', '" + nuevo.Apellido + "', '" + nuevo.Email + "','" + nuevo.Telefono + "','" + nuevo.DNI + "', '" + nuevo.Perfil.ID +"')";
                 datos.setearConsulta("INSERT INTO EMPLEADOS (Nombre, Apellido, Email, Telefono, DNI, IDPerfil)" + valores);
                 datos.ejecutarAccion();
+                datos.cerrarConexion();
+                string claves = "values('"+ nuevo.User +"', '"+ nuevo.Pass +"', '"+ nuevo.Perfil.ID+"')";
+                datos.setearConsulta("INSERT INTO USUARIOS (Usuario, Pass, TipoUser)" + claves);
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
@@ -54,6 +58,34 @@ namespace negocio
                 throw ex;
             }
 
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public bool Loguear(Empleado emp)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Select Id, TipoUser from USUARIOS Where usuario = @user AND pass = @pass");
+                datos.setearParametro("@user", emp.User);
+                datos.setearParametro("@pass", emp.Pass);
+
+                datos.ejecutarLectura();
+                while (datos.Lector.Read)
+                {
+                    emp.ID = (int)datos.Lector["Id"];
+                    emp.TipoUsusario = (int)(datos.Lector["TipoUser"]) == 2 ? TipoUsuario.TELEFONISTA : TipoUsuario.ADMIN;
+                    return true;
+                }
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             finally
             {
                 datos.cerrarConexion();

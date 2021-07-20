@@ -33,15 +33,6 @@ namespace CALL_CENTER
         protected global::System.Web.UI.WebControls.TextBox usuApe;
 
         /// <summary>
-        /// usuMail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usuMail;
-
-        /// <summary>
         /// usuTel control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,33 @@ namespace CALL_CENTER
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox usuDni;
+
+        /// <summary>
+        /// usuMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox usuMail;
+
+        /// <summary>
+        /// usuUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox usuUser;
+
+        /// <summary>
+        /// usuPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox usuPass;
 
         /// <summary>
         /// ddlPerfilUsuario control.

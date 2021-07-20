@@ -19,37 +19,39 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <%--<form>--%>
                     <div class="form-group">
                         <label for="usu-name" class="col-form-label">Nombre:</label>
-                        <!--<input type="text" class="form-control" id="clienteName"/>-->
                         <asp:TextBox ID="usuName" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label for="usu-ape" class="col-form-label">Apellido:</label>
-                        <!-- <input type="text" class="form-control" id="clientApe"/>-->
                         <asp:TextBox ID="usuApe" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <label for="usu-mail" class="col-form-label">Mail:</label>
-                        <!-- <input type="text" class="form-control" id="clientMail"/>-->
-                        <asp:TextBox ID="usuMail" class="form-control" type="text" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
                         <label for="usu-tel" class="col-form-label">Telefono:</label>
-                        <!--  <input type="text" class="form-control" id="clientTel"/>-->
                         <asp:TextBox ID="usuTel" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label for="usu-dni" class="col-form-label">DNI/CUIL/CUIT:</label>
-                        <!--   <input type="text" class="form-control" id="clientDni"/>-->
                         <asp:TextBox ID="usuDni" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
+                         <div class="form-group">
+                        <label for="usu-mail" class="col-form-label">Mail:</label>
+                        <asp:TextBox ID="usuMail" class="form-control" type="text" runat="server"></asp:TextBox>
+                    </div>
+                         <div class="form-group">
+                        <label for="usu-user" class="col-form-label">Usuario:</label>
+                        <asp:TextBox ID="usuUser" class="form-control" type="text" runat="server"></asp:TextBox>
+                    </div>
+                         <div class="form-group">
+                        <label for="usu-pass" class="col-form-label">Contrasena:</label>
+                        <asp:TextBox ID="usuPass" class="form-control" type="text" runat="server"></asp:TextBox>
+                    </div>
+ <%--                   SE DEBERIA VALIDAR LA CLAVE INGRESANDO DOS VECES Y COMAPRANDO. PUEDE SER CON JS SEGURO ESTO EN TIEMPO REAL--%>
+                    <label for="usu-perfil" class="col-form-label">Perfil:</label>
                     <asp:DropDownList runat="server" ID="ddlPerfilUsuario" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
-                    <%-- </form>--%>
                 </div>
                 <div class="modal-footer">
-                    <!--<button type="button" class="btn btn-primary" onclick="guardarCliente" runat="server">Guardar</button>-->
                     <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardar" OnClick="guardarUsuario" runat="server" />
                 </div>
             </div>
