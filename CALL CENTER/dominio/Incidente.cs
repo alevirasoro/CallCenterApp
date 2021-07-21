@@ -10,7 +10,9 @@ namespace dominio
     {
         public int Numero { get; set; }
         public Empleado EmpleadoLegajo { get; set; }
+        public int idEmpleado { get; set; }
         public Cliente Cliente { get; set; }
+        public int idCliente { get; set; }
         public Tipo Tipo { get; set; } 
         public Prioridad Prioridad { get; set; }
         public string Asunto { get; set; }

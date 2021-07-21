@@ -16,6 +16,11 @@ namespace CALL_CENTER
         public List<Cliente> listaclientes;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "No estas Logueado");
+                Response.Redirect("Login.aspx");
+            }
 
             ClienteNegocio negocio = new ClienteNegocio();
             try

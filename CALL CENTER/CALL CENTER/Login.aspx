@@ -16,10 +16,10 @@
         <div class="formContainer">
                 <h3 class="formTitle">Ingresa a tu cuenta</h3>
             <div>
-                <asp:TextBox ID="txtUsu" class="form-control" type="text" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUsu" class="form-control" type="text" runat="server" placeholder="Usuario"></asp:TextBox>
             </div>
             <div>
-                <asp:TextBox ID="txtPass" class="form-control" type="text" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPass" class="form-control" type="text" runat="server" placeholder="********" TextMode="Password"></asp:TextBox>
             </div>
                 <label class="rememberme mt-checkbox mt-checkbox-outline" style="margin-left: 60px">
                         <input type="checkbox" name="remember" value="1"> Recordarme 

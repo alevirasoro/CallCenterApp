@@ -24,13 +24,13 @@ namespace CALL_CENTER
         protected global::System.Web.UI.WebControls.Repeater repetidor;
 
         /// <summary>
-        /// telCliente control.
+        /// idCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox telCliente;
+        protected global::System.Web.UI.WebControls.TextBox idCliente;
 
         /// <summary>
         /// asunto control.

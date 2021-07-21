@@ -30,6 +30,10 @@ namespace CALL_CENTER
                     Session.Add("usuario", usu);
                     Response.Redirect("Incidentes.aspx");
                 }
+                else
+                {
+                    Session.Add("error", "no estas autorizado");
+                }
 
                 
             }

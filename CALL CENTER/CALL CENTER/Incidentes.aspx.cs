@@ -15,6 +15,11 @@ namespace CALL_CENTER
         public List<Incidente> listaincidentes;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["usuario"] == null)
+            {
+                Session.Add("error", "No estas Logueado");
+                Response.Redirect("Login.aspx");
+            }
       
             IncidenteNegocio negocio = new IncidenteNegocio();
 
@@ -66,6 +71,7 @@ namespace CALL_CENTER
             IncidenteNegocio negocio = new IncidenteNegocio();
             Incidente incidente = new Incidente();
 
+            incidente.idCliente = int.Parse(idCliente.Text);
             incidente.Asunto = asunto.Text;
             incidente.Tipo = new Tipo(ddlTipo.DataTextField);
             incidente.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);

@@ -11,7 +11,13 @@ namespace CALL_CENTER
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["usuario"] == null)
+                Response.Redirect("Login.aspx", false);
+        }
+        public void BtnLogout(object sender, EventArgs e)
+        {
+            Session.Remove("usuario");
+            Response.Redirect("Login.aspx", false);
         }
     }
 }

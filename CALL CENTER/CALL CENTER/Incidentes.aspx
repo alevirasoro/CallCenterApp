@@ -69,22 +69,28 @@
                 <div class="modal-body">
                     <%--<form>--%>
                     <div class="form-group">
-                        <label for="usu-name" class="col-form-label">Telefono Cliente:</label>
+                        <label for="usu-name" class="col-form-label">Numero Cliente:</label>
                         <!--<input type="text" class="form-control" id="clienteName"/>-->
-                        <asp:TextBox ID="telCliente" class="form-control" type="text" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="idCliente" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label for="usu-ape" class="col-form-label">Asunto:</label>
                         <!-- <input type="text" class="form-control" id="clientApe"/>-->
                         <asp:TextBox ID="asunto" class="form-control" TextMode="MultiLine" Width="300px" Height="100px" runat="server"></asp:TextBox>
                     </div>
+                    <label for="tipo-inc" class="col-form-label">Tipo:</label>
                     <asp:DropDownList runat="server" ID="ddlTipo" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
                     <div class="form-group">
+                        <label for="prioridad-inc" class="col-form-label">Prioridad:</label>
                         <asp:DropDownList runat="server" ID="ddlPrioridad" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
+                        </div>
+                    <div>
+                        <label for="estado-inc" class="col-form-label">Estado:</label>
                         <asp:DropDownList runat="server" ID="ddlEstado" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
                     </div>
                     <div class="form-group">
                         <!--LOS USUARIOS DEBERIAN ESTAR BLOQUEADOS PARA EL USUARIO COMUN-->
+                        <label for="usuario-inc" class="col-form-label">Usuario:</label>
                         <asp:DropDownList runat="server" ID="ddlUsuarios" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
                     </div>
                 </div>

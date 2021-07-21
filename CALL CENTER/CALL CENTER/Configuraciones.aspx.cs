@@ -16,6 +16,12 @@ namespace CALL_CENTER
         protected Prioridad pri = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "No estas Logueado");
+                Response.Redirect("Login.aspx");
+            }
+
             TipoNegocio tipoNegocio = new TipoNegocio();
             PrioridadNegocio prioridad = new PrioridadNegocio();
             try

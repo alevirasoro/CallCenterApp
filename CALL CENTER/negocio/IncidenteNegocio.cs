@@ -63,7 +63,7 @@ namespace negocio
 
             try
             {
-                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', 1, 2, '"+ aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID +"')";
+                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', '"+ aux.idCliente +"', 2, '"+ aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID +"')";
                 datos.setearConsulta("INSERT into INCIDENTES (Asunto, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)" + valores);
                 datos.ejecutarAccion();
             }

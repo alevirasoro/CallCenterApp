@@ -17,6 +17,12 @@ namespace CALL_CENTER
         public List<Empleado> listaempleados;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "No estas Logueado");
+                Response.Redirect("Login.aspx");
+            }
+
             try
             {
                 if (!IsPostBack)
