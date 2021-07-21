@@ -73,7 +73,7 @@ namespace negocio
                 datos.setearParametro("@pass", emp.Pass);
 
                 datos.ejecutarLectura();
-                while (datos.Lector.Read)
+                while (datos.Lector.Read())
                 {
                     emp.ID = (int)datos.Lector["Id"];
                     emp.TipoUsusario = (int)(datos.Lector["TipoUser"]) == 2 ? TipoUsuario.TELEFONISTA : TipoUsuario.ADMIN;

@@ -22,3 +22,9 @@ C:\Users\USER\Desktop\programacion\TP CUATRIMESTRAL POSTA\TPC-CALL-CENTER-Achava
 C:\Users\USER\Desktop\programacion\TP CUATRIMESTRAL POSTA\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\USER\Desktop\programacion\TP CUATRIMESTRAL POSTA\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.dll
 C:\Users\USER\Desktop\programacion\TP CUATRIMESTRAL POSTA\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.pdb
+C:\Users\USER\Desktop\cuatrimestralagain\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\bin\Debug\dominio.dll
+C:\Users\USER\Desktop\cuatrimestralagain\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\bin\Debug\dominio.pdb
+C:\Users\USER\Desktop\cuatrimestralagain\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\cuatrimestralagain\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\cuatrimestralagain\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.dll
+C:\Users\USER\Desktop\cuatrimestralagain\TPC-CALL-CENTER-Achaval-y-Virasoro\CALL CENTER\dominio\obj\Debug\dominio.pdb

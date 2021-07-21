@@ -15,14 +15,18 @@
         <h2 class="logo">CALL CENTER</h2>
         <div class="formContainer">
                 <h3 class="formTitle">Ingresa a tu cuenta</h3>
-                <input type="text" class="input" placeholder="Usuario"/><br>
-                <input type="text" class="input" placeholder="Contrasena"/><br>
+            <div>
+                <asp:TextBox ID="txtUsu" class="form-control" type="text" runat="server"></asp:TextBox>
+            </div>
+            <div>
+                <asp:TextBox ID="txtPass" class="form-control" type="text" runat="server"></asp:TextBox>
+            </div>
                 <label class="rememberme mt-checkbox mt-checkbox-outline" style="margin-left: 60px">
                         <input type="checkbox" name="remember" value="1"> Recordarme 
                         <span></span>
                     </label>
                 <%--<input type="submit" class="btnEnviar" value="Ingresar" />--%>
-                <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnLogin" OnClick="btnLoginClick" runat="server" />
+                <asp:Button Text="Ingresar" CssClass="btn btn-primary" ID="btnLogin" OnClick="btnLoginClick" runat="server" />
         </div>
     </form>
 </body>
