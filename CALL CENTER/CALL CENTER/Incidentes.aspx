@@ -22,6 +22,7 @@
                     <th>Prioridad</th>
                     <th>Empleado</th>
                     <th>Estado</th>
+                    <th>Comentario</th>
                     <th>Acciones</th>          
                 </tr>
             </thead>

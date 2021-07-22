@@ -77,8 +77,8 @@ namespace CALL_CENTER
                 incidente.Estado.ID = 1;
                 incidente.Fecha = DateTime.Today;
                 incidente.Email = ddlUsuarios.DataTextField;
-                //string vacio = "sin comentario";
-                //incidente.ComentarioCierre = vacio;
+                string vacio = "sin comentario";
+                incidente.ComentarioCierre = (string) vacio;
 
                 negocio.agregar(incidente);
              

@@ -1,9 +1,17 @@
-use master
+﻿use master
 go
 create database CALLCENTER_DB
-
 go
 use CALLCENTER_DB
+
+GO
+﻿CREATE TABLE USUARIOS(
+	Id int not null primary key identity(1,1),
+	Usuario varchar(50) not null,
+	Pass varchar(50) not null,
+	TipoUser int not null
+)
+
 GO
 CREATE TABLE PERFILES(
 	ID int not null primary key identity(1,1),
@@ -56,15 +64,12 @@ CREATE TABLE INCIDENTES(
 	IDTipo int not null foreign key references TIPOS(ID),
 	IDEstado int not null foreign key references ESTADOS(ID)
 )
-
+----------------------------------------------------------------
 GO
 insert into PERFILES values ('Administrador'), ('Telefonista'), ('Supervisor')
 
 GO
-insert into ESTADOS values ('Abierto'), ('En An�lisis'), ('Cerrado'), ('Reabierto'), ('Asignado'), ('Resuelto')
-
-
-------------------------------------------------------------------------------------------
+insert into ESTADOS values ('Abierto'), ('En Análisis'), ('Cerrado'), ('Reabierto'), ('Asignado'), ('Resuelto')
 GO
 insert into TIPOS values ('Interno'), ('Externo')
 GO
@@ -83,5 +88,11 @@ insert into EMPLEADOS (Nombre, Apellido, Email, Telefono, DNI, IDPerfil)
 values ('Joaquin','Achaval','achaval@utn.com.ar','1534715100','23900',2)
 GO
 insert into INCIDENTES (Asunto, Comentario, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)
-values ('El cliente se comunica porque tuvo un error en la factura debido a un mal calculo de la cuota mensual del sistema', '','07/07/21',1,2,2,1,1)
-
+values ('El cliente se comunica porque tuvo un error en la factura debido a un mal calculo de la cuota mensual del sistema', 'sin comentario','07/07/21',1,2,2,1,1)
+insert into INCIDENTES (Asunto, Comentario, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)
+values ('Llama el cliente porque no puede realizar ventas', 'sin comentario','01/07/21',1,2,2,1,1)
+GO
+insert into USUARIOS Values ('jachaval', 'jachaval', 1)
+insert into USUARIOS Values ('avirasoro', 'avirasoro', 2)
+insert into USUARIOS Values ('maxiprograma', 'maxiprograma', 3)
+insert into USUARIOS Values ('msarfernandez', 'msarfernandez', 2)

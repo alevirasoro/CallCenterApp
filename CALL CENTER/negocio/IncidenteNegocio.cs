@@ -27,7 +27,7 @@ namespace negocio
                     aux.Prioridad = new Prioridad((string)datos.Lector["Prioridad"]);
                     aux.EmpleadoLegajo = new Empleado((string)datos.Lector["EmpleadoApe"].ToString()); //asi funciona pero no es la idea
                     aux.Estado = new Estado((string)datos.Lector["Estado"]);
-                    //aux.ComentarioCierre = (string)datos.Lector["Comentario"];
+                    aux.ComentarioCierre = (string)datos.Lector["Comentario"];
 
                     lista.Add(aux);
                 }
@@ -52,8 +52,8 @@ namespace negocio
 
             try
             {
-                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', '"+ aux.idCliente +"', 2, '"+ aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID +"')";
-                datos.setearConsulta("INSERT into INCIDENTES (Asunto, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado)" + valores);
+                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', '"+ aux.idCliente +"', 2, '"+ aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID + "',  '" + aux.ComentarioCierre + "')";
+                datos.setearConsulta("INSERT into INCIDENTES (Asunto, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado, Comentario)" + valores);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
