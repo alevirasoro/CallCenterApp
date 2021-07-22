@@ -26,7 +26,7 @@ namespace CALL_CENTER
             PrioridadNegocio prioridad = new PrioridadNegocio();
             try
             {
-                if(!IsPostBack)
+                if (!IsPostBack)
                 {
                     ddlTipos.DataSource = tipoNegocio.listarTipos();
                     ddlTipos.DataTextField = "TipoIncidente";
@@ -38,7 +38,7 @@ namespace CALL_CENTER
                     ddlPrioridades.DataBind();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Session.Add("Exception", ex.ToString());
 
@@ -60,7 +60,7 @@ namespace CALL_CENTER
                 tipo.agregar(tip);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
-               
+
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ namespace CALL_CENTER
                 prioridad.agregar(pri);
 
                 Response.Write("<script>alert('Agregado correctamente');</script>");
-          
+
             }
             catch (Exception ex)
             {
@@ -123,6 +123,18 @@ namespace CALL_CENTER
             {
                 throw ex;
             }
+        }
+        public void btnModificar1_Click(object sender, EventArgs e)
+        {
+            var argument = ddlTipos.SelectedItem.Value;
+            Session.Add("TiposModificar", argument);
+            Response.Redirect("ModificarTipos.aspx");
+        }
+        public void btnModificar2_Click(object sender, EventArgs e)
+        {
+            var argument = ddlPrioridades.SelectedItem.Value;
+            Session.Add("PrioridadesModificar", argument);
+            Response.Redirect("ModificarPrioridades.aspx");
         }
     }
 }

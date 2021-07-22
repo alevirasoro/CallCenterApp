@@ -10,6 +10,8 @@
 
     <!--NUEVO TIPO-->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalTipo">Agregar Tipo</button>
+
+    <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button2" OnClick="btnModificar1_Click" runat="server" />
     
     <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="Button1" OnClick="btnEliminar1_Click" runat="server" />
     
@@ -43,7 +45,11 @@
 
     <!--NUEVA PRIORIDAD-->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalPrioridad">Agregar Prioridad</button>
-            <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminar2_Click" runat="server" />
+
+    <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button3" OnClick="btnModificar2_Click" runat="server" />
+
+    <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminar2_Click" runat="server" />
+
     <div class="modal fade" id="modalPrioridad" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

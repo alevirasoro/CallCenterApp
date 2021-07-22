@@ -73,5 +73,50 @@ namespace negocio
                 datos = null;
             }
         }
+
+        public void modificarTipo(Tipo modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("update TIPOS set TipoIncidente = @tipo Where ID = @id");
+                datos.setearParametro("@tipo", modificar.TipoIncidente);
+                datos.setearParametro("@id", modificar.ID);
+              
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public Tipo traerTipo(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Tipo aux = new Tipo("5");
+                datos.setearConsulta("select T.TipoIncidente from TIPOS T WHERE T.ID = " + id);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    aux.TipoIncidente = (string)datos.Lector["TipoIncidente"];              
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

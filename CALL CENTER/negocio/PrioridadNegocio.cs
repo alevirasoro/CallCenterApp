@@ -78,6 +78,49 @@ namespace negocio
                 datos = null;
             }
         }
+        public void modificarPrioridad(Prioridad modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                datos.setearConsulta("update PRIORIDADES set PrioridadIncidente = @prioridad Where ID = @id");
+                datos.setearParametro("@prioridad", modificar.PrioridadIncidente);
+                datos.setearParametro("@id", modificar.ID);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public Prioridad traerPrioridad(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Prioridad aux = new Prioridad("5");
+                datos.setearConsulta("select P.PrioridadIncidente from PRIORIDADES P WHERE P.ID = " + id);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    aux.PrioridadIncidente = (string)datos.Lector["PrioridadIncidente"];
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
