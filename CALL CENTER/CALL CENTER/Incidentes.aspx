@@ -37,7 +37,7 @@
                             <td><%#Eval("Prioridad")%></td>  
                             <td><%#Eval("EmpleadoLegajo")%></td>  
                             <td><%#Eval("Estado")%></td> 
-<%--                            <td><%#Eval("ComentarioCierre")%></td> --%>
+                            <td><%#Eval("ComentarioCierre")%></td> 
                             <td>
                                 <div class="dropdown">
                                     <button class="dropbtn">Acciones</button>

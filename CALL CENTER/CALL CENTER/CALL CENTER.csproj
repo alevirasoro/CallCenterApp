@@ -117,6 +117,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EnvioEmail.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="estilos.css" />
     <Content Include="favicon.ico" />
@@ -276,6 +277,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnvioEmail.aspx.cs">
+      <DependentUpon>EnvioEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnvioEmail.aspx.designer.cs">
+      <DependentUpon>EnvioEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

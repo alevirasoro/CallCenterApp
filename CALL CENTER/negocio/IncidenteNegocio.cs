@@ -27,7 +27,7 @@ namespace negocio
                     aux.Prioridad = new Prioridad((string)datos.Lector["Prioridad"]);
                     aux.EmpleadoLegajo = new Empleado((string)datos.Lector["EmpleadoApe"].ToString()); //asi funciona pero no es la idea
                     aux.Estado = new Estado((string)datos.Lector["Estado"]);
-                   // aux.ComentarioCierre = (string)datos.Lector["Comentario"];
+                    //aux.ComentarioCierre = (string)datos.Lector["Comentario"];
 
                     lista.Add(aux);
                 }
@@ -68,8 +68,30 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        public string traerMailCliente(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Cliente aux = new Cliente('5');
+                datos.setearConsulta("select c.Email email  from CLIENTES C WHERE C.ID = " + id);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    aux.Email = (string)datos.Lector["email"];
+                }
+                return aux.Email;
+            }
+            catch (Exception ex)
+            {
 
-        
-        
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

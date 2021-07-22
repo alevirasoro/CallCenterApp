@@ -66,49 +66,50 @@ namespace CALL_CENTER
         {
             IncidenteNegocio negocio = new IncidenteNegocio();
             Incidente incidente = new Incidente();
+            try{
+                incidente.idCliente = int.Parse(idCliente.Text);
+                incidente.Asunto = asunto.Text;
+                incidente.Tipo = new Tipo(ddlTipo.DataTextField);
+                incidente.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);
+                incidente.Prioridad = new Prioridad(ddlPrioridad.DataTextField);
+                incidente.Prioridad.ID = int.Parse(ddlPrioridad.SelectedItem.Value);
+                incidente.Estado = new Estado("Abierto");
+                incidente.Estado.ID = 1;
+                incidente.Fecha = DateTime.Today;
+                incidente.Email = ddlUsuarios.DataTextField;
+                //string vacio = "sin comentario";
+                //incidente.ComentarioCierre = vacio;
 
-            incidente.idCliente = int.Parse(idCliente.Text);
-            incidente.Asunto = asunto.Text;
-            incidente.Tipo = new Tipo(ddlTipo.DataTextField);
-            incidente.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);
-            incidente.Prioridad = new Prioridad(ddlPrioridad.DataTextField);
-            incidente.Prioridad.ID = int.Parse(ddlPrioridad.SelectedItem.Value);
-            incidente.Estado = new Estado("Abierto");
-            incidente.Estado.ID = 1;
-            incidente.Fecha = DateTime.Today;
-            incidente.Email = ddlUsuarios.DataTextField;
+                negocio.agregar(incidente);
+             
+                btnEnviar_Mail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Exception", ex.ToString());
 
-
-            negocio.agregar(incidente);
+                Response.Redirect("Error.aspx");
+            }
             Response.Redirect("Incidentes.aspx");
+        }
+        public void btnEnviar_Mail()
+        {
+            IncidenteNegocio mail = new IncidenteNegocio();
 
-            //EmpleadoNegocio negocio = new EmpleadoNegocio();
-            //try
-            //{
-            //    if (emp == null)
-            //        emp = new Empleado();
-            //    emp.Nombre = usuName.Text;
-            //    emp.Apellido = usuApe.Text;
-            //    emp.Email = usuMail.Text;
-            //    emp.Telefono = usuTel.Text;
-            //    emp.DNI = usuDni.Text;
-            //    emp.Perfil = new Perfil(ddlPerfilUsuario.DataTextField);
-            //    emp.Perfil.ID = int.Parse(ddlPerfilUsuario.SelectedItem.Value);
+            int id = int.Parse(idCliente.Text);
+            string Email = mail.traerMailCliente(id);
+            string Asunto = asunto.Text;
+            EmailService emailService = new EmailService();
+            emailService.armarCorreo(Email, id, Asunto);
 
-            //    EmpleadoNegocio.agregarUsuario(emp);
-
-            //    Response.Write("<script>alert('Agregado correctamente');</script>");
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    Session.Add("Exception", ex.ToString());
-
-            //    Response.Redirect("Error.aspx");
-            //}
-
-            ////TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
-            //Response.Redirect("Usuarios.aspx");
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
         }
     }
 }
