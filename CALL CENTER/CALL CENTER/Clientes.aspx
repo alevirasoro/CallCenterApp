@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnModificar"  CommandArgument='47' OnClick="btnModificarCliente_Click" runat="server" />
+<%--                    <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnModificar"  CommandArgument='47' OnClick="btnModificarCliente_Click" runat="server" />--%>
                 </div>
             </div>
         </div>
@@ -191,9 +191,13 @@
                                 <div class="dropdown">
                                     <button class="dropbtn">Acciones</button>
                                     <div class="dropdown-content">  
-                                        <asp:Button Text="Modificar2" CssClass="btn btn-danger" ID="Button5" OnClick="AgregarNroClienteSession" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
-                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalModificarCliente"  data-whatever="@mdo" ID="Button1" OnClientClick="return false" runat="server" />
-                                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+<%--                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalModificarCliente" CommandName = "getCodigo" OnClick="" data-whatever="@mdo">Modificar</button>--%>
+                                        <%--<asp:Button Text="Modificar2" CssClass="btn btn-danger" ID="Button5" OnClick="AgregarNroClienteSession" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalModificarCliente"  data-whatever="@mdo" ID="Button1" OnClientClick="return false" runat="server" />--%>
+
+                                         <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button6" OnClick="IrPaginaModificar" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
+                                        
+                                        <asp:Button Text="Eliminar"  CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
 
                                     </div>
                                 </div>

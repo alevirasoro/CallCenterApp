@@ -130,5 +130,35 @@ namespace negocio
                 datos = null;
             }
         }
+        public Cliente traerCliente(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Cliente aux = new Cliente('5');
+                datos.setearConsulta("select c.Apellido, c.Nombre, c.Email, c.Telefono, c.DNI  from CLIENTES C WHERE C.ID = " + id);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    aux.Apellido = (string)datos.Lector["Apellido"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.DNI = (string)datos.Lector["DNI"];
+                    aux.Telefono = (string)datos.Lector["Telefono"];
+                    aux.Email = (string)datos.Lector["Email"];
+
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

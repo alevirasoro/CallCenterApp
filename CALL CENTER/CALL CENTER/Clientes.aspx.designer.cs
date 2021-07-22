@@ -114,15 +114,6 @@ namespace CALL_CENTER
         protected global::System.Web.UI.WebControls.TextBox clienteDni2;
 
         /// <summary>
-        /// btnModificar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
-
-        /// <summary>
         /// repetidor control.
         /// </summary>
         /// <remarks>

@@ -109,5 +109,11 @@ namespace CALL_CENTER
             //TODOS ESTOS RESPONSE SE TIENEN QUE CAMBIAR POR UPDATE PANEL
             Response.Redirect("Usuarios.aspx");
         }
+        public void IrPaginaModificarEmpleado(object sender, EventArgs e)
+        {
+            var argument = ((Button)sender).CommandArgument;
+            Session.Add("NroEmpleadoModificar", argument);
+            Response.Redirect("ModificarEmpleado.aspx");
+        }
     }
 }

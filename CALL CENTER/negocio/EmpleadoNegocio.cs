@@ -147,6 +147,66 @@ namespace negocio
                 datos = null;
             }
         }
+
+        public void modificarEmpleado(Empleado modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("update EMPLEADOS set Nombre = @nombre, Apellido = @apellido, Email = @email, Telefono = @telefono, Dni = @dni Where ID = @id");
+                datos.setearParametro("@nombre", modificar.Nombre);
+                datos.setearParametro("@apellido", modificar.Apellido);
+                datos.setearParametro("@email", modificar.Email);
+                datos.setearParametro("@telefono", modificar.Telefono);
+                datos.setearParametro("@dni", modificar.DNI);
+                datos.setearParametro("@id", modificar.ID);
+               // datos.setearParametro("@idperfil", modificar.Perfil.ID);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public Empleado traerEmpleado(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Empleado aux = new Empleado("5");
+                datos.setearConsulta("select E.ID, E.Nombre Nombre, E.Apellido Apellido, E.Email Email, E.Telefono Telefono, E.DNI DNI, E.IDPerfil IDPerfil, P.TipoPerfil Perfil from EMPLEADOS E inner join PERFILES P on P.ID = E.IDPerfil WHERE E.ID = " + id);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    aux.Apellido = (string)datos.Lector["Apellido"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.DNI = (string)datos.Lector["DNI"];
+                    aux.Telefono = (string)datos.Lector["Telefono"];
+                    aux.Email = (string)datos.Lector["Email"];
+                    aux.Perfil = new Perfil((string)datos.Lector["Perfil"]);
+
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
 
