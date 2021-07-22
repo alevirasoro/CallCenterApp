@@ -29,9 +29,12 @@ namespace CALL_CENTER
                     txtDNI2.Text = emple.DNI;
                     txtEmail2.Text = emple.Email;
                     txtTelono2.Text = emple.Telefono;
-                    txtIdperfil2.Text = emple.Perfil.TipoPerfil;
 
-
+                    EmpleadoNegocio empleado = new EmpleadoNegocio();
+                    ddlPerfilUsuario.DataSource = empleado.listarPerfiles();
+                    ddlPerfilUsuario.DataTextField = "TipoPerfil";
+                    ddlPerfilUsuario.DataValueField = "ID";
+                    ddlPerfilUsuario.DataBind();
                 }
             }
             catch (Exception ex)
@@ -58,7 +61,8 @@ namespace CALL_CENTER
                 emp.Email = txtEmail2.Text;
                 emp.Telefono = txtTelono2.Text;
                 emp.DNI = txtDNI2.Text;
-                //emp.Perfil.ID = txtIdperfil2.Text;
+                emp.Perfil = new Perfil(ddlPerfilUsuario.DataTextField);
+                emp.Perfil.ID = int.Parse(ddlPerfilUsuario.SelectedItem.Value);
 
                 empleadoNegocio.modificarEmpleado(emp);
             }

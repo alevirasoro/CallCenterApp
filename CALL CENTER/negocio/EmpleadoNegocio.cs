@@ -147,21 +147,21 @@ namespace negocio
                 datos = null;
             }
         }
-
+        
         public void modificarEmpleado(Empleado modificar)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("update EMPLEADOS set Nombre = @nombre, Apellido = @apellido, Email = @email, Telefono = @telefono, Dni = @dni Where ID = @id");
+                datos.setearConsulta("update EMPLEADOS set Nombre = @nombre, Apellido = @apellido, Email = @email, Telefono = @telefono, Dni = @dni, IDPerfil = @idperfil  Where ID = @id");
                 datos.setearParametro("@nombre", modificar.Nombre);
                 datos.setearParametro("@apellido", modificar.Apellido);
                 datos.setearParametro("@email", modificar.Email);
                 datos.setearParametro("@telefono", modificar.Telefono);
                 datos.setearParametro("@dni", modificar.DNI);
                 datos.setearParametro("@id", modificar.ID);
-               // datos.setearParametro("@idperfil", modificar.Perfil.ID);
+                datos.setearParametro("@idperfil", modificar.Perfil.ID);
 
                 datos.ejecutarAccion();
             }

@@ -28,8 +28,8 @@
                 <asp:TextBox runat="server" ID="txtTelono2" CssClass="form-control" />
             </div>
             <div class="mb-3">
-                <label class="form-label">Perfil</label>
-                <asp:TextBox runat="server" ID="txtIdperfil2" CssClass="form-control" />
+                <label for="usu-perfil" class="col-form-label">Perfil:</label>
+                 <asp:DropDownList runat="server" ID="ddlPerfilUsuario" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
             </div>
             <div>
                 <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardarEmpleado" CommandArgument='47' OnClick="btnGuardarModificarEmpleado_Click" runat="server" />

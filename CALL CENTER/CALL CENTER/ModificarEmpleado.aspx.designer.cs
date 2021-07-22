@@ -60,13 +60,13 @@ namespace CALL_CENTER
         protected global::System.Web.UI.WebControls.TextBox txtTelono2;
 
         /// <summary>
-        /// txtIdperfil2 control.
+        /// ddlPerfilUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdperfil2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPerfilUsuario;
 
         /// <summary>
         /// btnGuardarEmpleado control.

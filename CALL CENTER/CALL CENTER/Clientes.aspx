@@ -85,7 +85,7 @@
                         </asp:RegularExpressionValidator>--%>
                     </div>
                     <div class="form-group">
-                        <label for="client-tel" class="col-form-label">Telefono:</label>
+                        <label for="client-tel" class="col-form-label">Teléfono:</label>
                         <asp:TextBox ID="clienteTel" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">

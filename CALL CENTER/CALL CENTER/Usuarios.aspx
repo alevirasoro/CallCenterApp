@@ -26,7 +26,7 @@
                         <asp:TextBox ID="usuApe" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <label for="usu-tel" class="col-form-label">Telefono:</label>
+                        <label for="usu-tel" class="col-form-label">Teléfono:</label>
                         <asp:TextBox ID="usuTel" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group">
