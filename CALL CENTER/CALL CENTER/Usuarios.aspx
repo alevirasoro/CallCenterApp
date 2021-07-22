@@ -5,8 +5,6 @@
         <h1>Usuarios</h1>
     </div>
 
-    Si tiene permisos muestra todos los usuarios sino solo el suyo
-
      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalUsuario">Nuevo Usuario</button>
 
     <div class="modal fade" id="modalUsuario" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">

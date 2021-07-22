@@ -52,10 +52,6 @@ namespace CALL_CENTER
                     ddlUsuarios.DataValueField = "ID";
                     ddlUsuarios.DataBind();
 
-                    ddlEstado.DataSource = estado.listarEstados();
-                    ddlEstado.DataTextField = "EstadoIncidente";
-                    ddlEstado.DataValueField = "ID";
-                    ddlEstado.DataBind();
                 }
             }
             catch (Exception ex)
@@ -77,8 +73,8 @@ namespace CALL_CENTER
             incidente.Tipo.ID = int.Parse(ddlTipo.SelectedItem.Value);
             incidente.Prioridad = new Prioridad(ddlPrioridad.DataTextField);
             incidente.Prioridad.ID = int.Parse(ddlPrioridad.SelectedItem.Value);
-            incidente.Estado = new Estado(ddlEstado.DataTextField);
-            incidente.Estado.ID = int.Parse(ddlEstado.SelectedItem.Value);
+            incidente.Estado = new Estado("Abierto");
+            incidente.Estado.ID = 1;
             incidente.Fecha = DateTime.Today;
             incidente.Email = ddlUsuarios.DataTextField;
 

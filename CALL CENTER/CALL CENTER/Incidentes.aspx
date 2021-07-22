@@ -84,10 +84,6 @@
                         <label for="prioridad-inc" class="col-form-label">Prioridad:</label>
                         <asp:DropDownList runat="server" ID="ddlPrioridad" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
                         </div>
-                    <div>
-                        <label for="estado-inc" class="col-form-label">Estado:</label>
-                        <asp:DropDownList runat="server" ID="ddlEstado" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
-                    </div>
                     <div class="form-group">
                         <!--LOS USUARIOS DEBERIAN ESTAR BLOQUEADOS PARA EL USUARIO COMUN-->
                         <label for="usuario-inc" class="col-form-label">Usuario:</label>

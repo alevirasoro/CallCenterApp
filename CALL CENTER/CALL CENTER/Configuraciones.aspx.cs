@@ -16,10 +16,10 @@ namespace CALL_CENTER
         protected Prioridad pri = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
+            if (Session["usuario"] == null || (((dominio.Empleado)Session["usuario"]).TipoUsusario != dominio.TipoUsuario.ADMIN))
             {
-                Session.Add("error", "No estas Logueado");
-                Response.Redirect("Login.aspx");
+                Session.Add("Exception", "No estas Logueado/no tenes permisos");
+                Response.Redirect("Error.aspx");
             }
 
             TipoNegocio tipoNegocio = new TipoNegocio();

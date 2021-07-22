@@ -76,7 +76,7 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     emp.ID = (int)datos.Lector["Id"];
-                    emp.TipoUsusario = (int)(datos.Lector["TipoUser"]) == 2 ? TipoUsuario.TELEFONISTA : TipoUsuario.ADMIN;
+                    emp.TipoUsusario = (int)(datos.Lector["TipoUser"]) == 2 ? TipoUsuario.TELEFONISTA : (int)(datos.Lector["TipoUser"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.TELEFONISTA ;
                     return true;
                 }
                 return false;
@@ -110,6 +110,7 @@ namespace negocio
                     aux.Email = (string)datos.Lector["Email"];
                     aux.Telefono = (string)datos.Lector["Telefono"];
                     aux.Perfil = new Perfil((string)datos.Lector["Perfil"]);
+
 
                     lista.Add(aux);
                 }
