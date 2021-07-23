@@ -176,8 +176,7 @@ namespace negocio
                     aux.Prioridad = new Prioridad((string)datos.Lector["Prioridad"]);
                     aux.Prioridad.ID = (int)datos.Lector["IDPrioridad"];
                     aux.idEmpleado = (int)datos.Lector["IDEmpleado"];
-                    aux.Estado = new Estado("Asignado");
-                    aux.Estado.ID = 5;
+                    aux.Estado = new Estado((string)datos.Lector["Estado"]);
                 }
                 return aux;
             }

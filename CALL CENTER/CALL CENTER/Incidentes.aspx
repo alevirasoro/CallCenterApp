@@ -44,8 +44,10 @@
                                         <%if ((Session["usuario"] != null && ((dominio.Empleado)Session["usuario"]).TipoUsusario == dominio.TipoUsuario.ADMIN) || (Session["usuario"] != null && ((dominio.Empleado)Session["usuario"]).TipoUsusario == dominio.TipoUsuario.SUPERVISOR)) {  %>
                                         <asp:Button Text="Reasignar" CssClass="btn btn-primary" ID="btnReasignar" OnClick="reasignarUsuario" CommandArgument='<%#Eval("Numero")%>' runat="server" />
                                         <% } %>
-                                         <asp:Button Text="Resolver" CssClass="btn btn-success" ID="Button1" OnClick="resolverIncidente" CommandArgument='<%#Eval("Numero")%>' runat="server" />
+                                        <asp:Button Text="Editar" CssClass="btn btn-primary" ID="Button2" OnClick="editarIncidente" CommandArgument='<%#Eval("Numero")%>' runat="server" /> 
+                                        <asp:Button Text="Resolver" CssClass="btn btn-success" ID="Button1" OnClick="resolverIncidente" CommandArgument='<%#Eval("Numero")%>' runat="server" />
                                         <asp:Button Text="Cerrar" CssClass="btn btn-danger" ID="btnCerrarInc" OnClick="cerrarIncidente" CommandArgument='<%#Eval("Numero")%>' runat="server" />
+
                                     </div>
                                 </div>
                             </td>

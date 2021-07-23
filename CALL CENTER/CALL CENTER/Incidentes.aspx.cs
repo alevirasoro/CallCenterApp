@@ -127,6 +127,14 @@ namespace CALL_CENTER
             Session.Add("AccionIncidente", accion);
             Response.Redirect("ModificarIncidente.aspx");
         }
+        public void editarIncidente(object sender, EventArgs e)
+        {
+            var argument = ((Button)sender).CommandArgument;
+            var accion = "editar";
+            Session.Add("IncidenteModificar", argument);
+            Session.Add("AccionIncidente", accion);
+            Response.Redirect("ModificarIncidente.aspx");
+        }
         public void resolverIncidente(object sender, EventArgs e)
         {
             var argument = ((Button)sender).CommandArgument;

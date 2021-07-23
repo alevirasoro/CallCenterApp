@@ -1,4 +1,20 @@
 Falta cerrar y resolver incidente
-Falta agregar las paginas nuevas de modificarEmpleado y ModificarClientes, etc para que
+
+LISTO -- Falta agregar las paginas nuevas de modificarEmpleado y ModificarClientes, etc para que
 se ejecute primero el login
+
 Falta enviar mail al cerrar incidente
+
+
+LISTO -- el Supervisor podrá cambiar la asignación en cualquier momento. 
+
+Un incidente nace en estado LISTOI “Abierto”, pasa a LISTO"Asignado" cuando se reasigna; a “En Análisis” cuando se lo modifica 
+por algún motivo. Una vez que se dio una respuesta satisfactoria se pasa a "Resuelto" con un botón "Resolver" que 
+pedirá algún dato adicional final; y por último, el incidente puede ser cerrado desde un botón “Cerrar Incidencia”. 
+Cuando se cierra, sí o sí debe pedir un comentario final de cierre. 
+
+COMPLICADOOO -- os telefonistas podrán ver y administrar clientes e incidencias, pero
+sólo ver las incidencias asignadas a ellos
+
+LISTO -- El administrador podrá ver y manipular todo, inclusive usuarios y accesos y el Supervisor es quien puede ver todo y 
+easignar incidencias.
