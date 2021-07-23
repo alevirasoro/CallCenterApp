@@ -94,9 +94,9 @@ namespace CALL_CENTER
                 incidente.ComentarioCierre = txtComentarios.Text;
                 negocio.modificar(incidente);
 
-               // btnEnviar_MailIncidenteRes(incidente.idEmpleado, incidente.Prioridad.ID, incidente.Tipo.ID);
+                btnEnviar_MailIncidenteResuelto(incidente.Numero, incidente.ComentarioCierre);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -104,6 +104,30 @@ namespace CALL_CENTER
             {
                 Session.Remove("IncidenteModificar");
                 Response.Redirect("Incidentes.aspx");
+            }
+        }
+        public void btnEnviar_MailIncidenteResuelto(int numeroincidente, string comentariocierre)
+        {
+
+            IncidenteNegocio Clie = new IncidenteNegocio();
+            Incidente incidente = new Incidente();
+            Cliente client = new Cliente('5');
+            incidente= Clie.buscarIncidente(numeroincidente);
+            int idcliente = incidente.idCliente;
+            client = Clie.traerDatosCliente(idcliente);
+
+            string Asunto = txtAsunto.Text;
+
+            EmailService emailService = new EmailService();
+            emailService.armarCorreoResolverIncidente(client.Email, client.Apellido, client.Nombre, incidente.Asunto, numeroincidente, comentariocierre);
+
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
             }
         }
 
@@ -120,7 +144,7 @@ namespace CALL_CENTER
                 incidente.ComentarioCierre = txtComentarioCierre.Text;
                 negocio.modificar(incidente);
 
-              //  btnEnviar_MailIncidenteRes(incidente.idEmpleado, incidente.Prioridad.ID, incidente.Tipo.ID);
+                btnEnviar_MailIncidenteCerrado(incidente.Numero, incidente.ComentarioCierre);
             }
             catch (Exception ex)
             {
@@ -130,6 +154,28 @@ namespace CALL_CENTER
             {
                 Session.Remove("IncidenteModificar");
                 Response.Redirect("Incidentes.aspx");
+            }
+        }
+        public void btnEnviar_MailIncidenteCerrado(int numeroincidente, string comentariocierre)
+        {
+
+            IncidenteNegocio Clie = new IncidenteNegocio();
+            Incidente incidente = new Incidente();
+            Cliente client = new Cliente('5');
+            incidente = Clie.buscarIncidente(numeroincidente);
+            int idcliente = incidente.idCliente;
+            client = Clie.traerDatosCliente(idcliente);
+
+            EmailService emailService = new EmailService();
+            emailService.armarCorreoCerrarIncidente(client.Email, client.Apellido, client.Nombre, incidente.Asunto, numeroincidente, comentariocierre);
+
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
             }
         }
         public void btnGuardarIncResClick(object sender, EventArgs e)
@@ -155,38 +201,10 @@ namespace CALL_CENTER
                 Session.Remove("IncidenteModificar");
                 Response.Redirect("Incidentes.aspx");
             }
-
         }
         public void btnCancelarModificarInc(object sender, EventArgs e)
         {
             Response.Redirect("Incidentes.aspx");
-        }
-
-        public void btnEnviar_MailIncidenteRes(int idempleado, int idprioridad, int idtipo)
-        {
-
-            IncidenteNegocio Clie = new IncidenteNegocio();
-            Cliente client = new Cliente('5');
-            int idcliente = int.Parse(txtNumero.Text);
-            client = Clie.traerDatosCliente(idcliente);
-
-            string Asunto = txtAsunto.Text;
-
-            int idincidente = Clie.traerIDIncidente(idcliente, idempleado, idprioridad, idtipo, Asunto);
-            EmailService emailService = new EmailService();
-            emailService.armarCorreo(client.Email, client.Apellido, client.Nombre, idcliente, Asunto, idincidente);
-
-
-
-
-            try
-            {
-                emailService.enviarEmail();
-            }
-            catch (Exception ex)
-            {
-                Session.Add("error", ex);
-            }
-        }
+        }        
     }
 }

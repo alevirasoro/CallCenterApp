@@ -104,7 +104,7 @@ namespace CALL_CENTER
          
             int idincidente = Clie.traerIDIncidente(idcliente, idempleado, idprioridad, idtipo, Asunto);
             EmailService emailService = new EmailService();
-            emailService.armarCorreo(client.Email, client.Apellido, client.Nombre, idcliente, Asunto, idincidente);
+            emailService.armarCorreoNuevoIncidente(client.Email, client.Apellido, client.Nombre, idcliente, Asunto, idincidente);
 
 
 
