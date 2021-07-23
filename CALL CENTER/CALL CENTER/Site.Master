@@ -42,7 +42,7 @@
             <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">CALL CENTER WEB </a>
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <asp:Button Text="Desloguarse" ID="btnLogout" OnClick="BtnLogout" runat="server" />
+                    <asp:Button Text="Desloguarse" ID="btnLogout" class="btnLogOut" OnClick="BtnLogout" runat="server" />
                 </li>
             </ul>
         </nav>

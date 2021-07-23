@@ -88,16 +88,24 @@
                         <asp:TextBox ID="asunto" class="form-control" TextMode="MultiLine" Width="300px" Height="100px" runat="server"></asp:TextBox>
                     </div>
                     <label for="tipo-inc" class="col-form-label">Tipo:</label>
+                    <div>
                     <asp:DropDownList runat="server" ID="ddlTipo" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
-                    <div class="form-group">
+                    </div>
+                        <div class="form-group">
                         <label for="prioridad-inc" class="col-form-label">Prioridad:</label>
+                             <div>
                         <asp:DropDownList runat="server" ID="ddlPrioridad" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
                         </div>
+                             </div>
                     <div class="form-group">
                         <!--LOS USUARIOS DEBERIAN ESTAR BLOQUEADOS PARA EL USUARIO COMUN-->
                         <label for="usuario-inc" class="col-form-label">Usuario:</label>
+                         <%if ((Session["usuario"] != null && ((dominio.Empleado)Session["usuario"]).TipoUsusario == dominio.TipoUsuario.ADMIN) || (Session["usuario"] != null && ((dominio.Empleado)Session["usuario"]).TipoUsusario == dominio.TipoUsuario.SUPERVISOR)) {  %>
+                        <div>
                         <asp:DropDownList runat="server" ID="ddlUsuarios" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
-                    </div>
+                   <% } %>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <!--<button type="button" class="btn btn-primary" onclick="guardarCliente" runat="server">Guardar</button>-->

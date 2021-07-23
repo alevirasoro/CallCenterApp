@@ -2,19 +2,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-
+    <div>
     <h2>Tipos</h2>
     
     <!--DROPDOWN-->
     <asp:DropDownList runat="server" ID="ddlTipos" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
-
+        </div>
     <!--NUEVO TIPO-->
+<div>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalTipo">Agregar Tipo</button>
 
     <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button2" OnClick="btnModificar1_Click" runat="server" />
     
     <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="Button1" OnClick="btnEliminar1_Click" runat="server" />
-    
+    </div>
     <div class="modal fade" id="modalTipo" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -39,17 +40,22 @@
         </div>
     </div>
 
-
+    <div>
     <h2>Prioridades</h2>
         <asp:DropDownList runat="server" ID="ddlPrioridades" CssClass="btn btn-outline-dark dropdown-toggle"></asp:DropDownList>
-
+        </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    
     <!--NUEVA PRIORIDAD-->
+    <div>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalPrioridad">Agregar Prioridad</button>
 
     <asp:Button Text="Modificar" CssClass="btn btn-primary" ID="Button3" OnClick="btnModificar2_Click" runat="server" />
 
     <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminar2_Click" runat="server" />
-
+</div>
     <div class="modal fade" id="modalPrioridad" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
