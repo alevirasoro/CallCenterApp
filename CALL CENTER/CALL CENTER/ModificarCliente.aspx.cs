@@ -14,6 +14,11 @@ namespace CALL_CENTER
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuario"] == null)
+            {
+                Session.Add("error", "No estas Logueado");
+                Response.Redirect("Login.aspx");
+            }
             try
             {
                 if (!IsPostBack)

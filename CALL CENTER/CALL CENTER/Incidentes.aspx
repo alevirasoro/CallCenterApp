@@ -7,8 +7,6 @@
     </div>
 
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalNuevoIncidente" data-whatever="@mdo">Nuevo Incidente</button>
-    <button type="button" class="btn btn-primary">Resolver Indicente</button>
-    <button type="button" class="btn btn-primary">Cerrar Incidente</button>
 
     <div class="tablausuario justify-content">
         <table id="example" class="display" style="width: 100%">
@@ -43,9 +41,11 @@
                                 <div class="dropdown">
                                     <button class="dropbtn">Acciones</button>
                                     <div class="dropdown-content">  
-                                        <%--<asp:Button Text="Modificar2" CssClass="btn btn-danger" ID="Button5" OnClick="AgregarNroClienteSession" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />
-                                        <asp:Button Text="Modificar" CssClass="btn btn-primary" data-toggle="modal" data-target="#modalModificarCliente"  data-whatever="@mdo" ID="Button1" OnClientClick="return false" runat="server" />
-                                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnEliminar2" OnClick="btnEliminarCliente_Click" CommandArgument='<%#Eval("NroCliente")%>' runat="server" />--%>
+                                        <%if ((Session["usuario"] != null && ((dominio.Empleado)Session["usuario"]).TipoUsusario == dominio.TipoUsuario.ADMIN) || (Session["usuario"] != null && ((dominio.Empleado)Session["usuario"]).TipoUsusario == dominio.TipoUsuario.SUPERVISOR)) {  %>
+                                        <asp:Button Text="Reasignar" CssClass="btn btn-primary" ID="btnReasignar" OnClick="reasignarUsuario" CommandArgument='<%#Eval("Numero")%>' runat="server" />
+                                        <% } %>
+                                         <asp:Button Text="Resolver" CssClass="btn btn-success" ID="Button1" OnClick="resolverIncidente" CommandArgument='<%#Eval("Numero")%>' runat="server" />
+                                        <asp:Button Text="Cerrar" CssClass="btn btn-danger" ID="btnCerrarInc" OnClick="cerrarIncidente" CommandArgument='<%#Eval("Numero")%>' runat="server" />
                                     </div>
                                 </div>
                             </td>

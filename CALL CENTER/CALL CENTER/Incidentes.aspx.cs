@@ -118,5 +118,17 @@ namespace CALL_CENTER
                 Session.Add("error", ex);
             }
         }
+        public void reasignarUsuario(object sender, EventArgs e)
+        {
+
+        }
+        public void resolverIncidente(object sender, EventArgs e)
+        {
+
+        }
+        public void cerrarIncidente(object sender, EventArgs e)
+        {
+
+        }
     }
 }
