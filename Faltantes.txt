@@ -1,6 +1,4 @@
-Falta poder editar el perfil del usuario.
-Falta editar incidente
-Falta eliminar incidente
-Falta agregar las paginas nuevas de modificarEmpleado y ModificarClientes para que
+Falta cerrar y resolver incidente
+Falta agregar las paginas nuevas de modificarEmpleado y ModificarClientes, etc para que
 se ejecute primero el login
 Falta enviar mail al cerrar incidente
