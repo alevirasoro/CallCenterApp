@@ -24,9 +24,13 @@
                     <th>Acciones</th>          
                 </tr>
             </thead>
-            <tbody>               
+            <tbody>
+           <%-- <%if (){ %>--%>
                 <asp:Repeater runat="server" ID="repetidor">
+                  
+
                     <ItemTemplate>
+
                         <tr>
                             <td><%#Eval("Fecha")%></td> 
                             <td><%#Eval("Numero")%></td>
@@ -53,7 +57,9 @@
                             </td>
                         </tr>
                     </ItemTemplate>
+
                 </asp:Repeater>
+<%--                <%} %>--%>
             </tbody>
         </table>
     </div>

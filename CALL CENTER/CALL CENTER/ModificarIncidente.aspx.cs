@@ -93,6 +93,8 @@ namespace CALL_CENTER
                 incidente.Estado.ID = 6;
                 incidente.ComentarioCierre = txtComentarios.Text;
                 negocio.modificar(incidente);
+
+               // btnEnviar_MailIncidenteRes(incidente.idEmpleado, incidente.Prioridad.ID, incidente.Tipo.ID);
             }
             catch(Exception ex)
             {
@@ -117,6 +119,8 @@ namespace CALL_CENTER
                 incidente.Estado.ID = 3;
                 incidente.ComentarioCierre = txtComentarioCierre.Text;
                 negocio.modificar(incidente);
+
+              //  btnEnviar_MailIncidenteRes(incidente.idEmpleado, incidente.Prioridad.ID, incidente.Tipo.ID);
             }
             catch (Exception ex)
             {
@@ -156,6 +160,33 @@ namespace CALL_CENTER
         public void btnCancelarModificarInc(object sender, EventArgs e)
         {
             Response.Redirect("Incidentes.aspx");
+        }
+
+        public void btnEnviar_MailIncidenteRes(int idempleado, int idprioridad, int idtipo)
+        {
+
+            IncidenteNegocio Clie = new IncidenteNegocio();
+            Cliente client = new Cliente('5');
+            int idcliente = int.Parse(txtNumero.Text);
+            client = Clie.traerDatosCliente(idcliente);
+
+            string Asunto = txtAsunto.Text;
+
+            int idincidente = Clie.traerIDIncidente(idcliente, idempleado, idprioridad, idtipo, Asunto);
+            EmailService emailService = new EmailService();
+            emailService.armarCorreo(client.Email, client.Apellido, client.Nombre, idcliente, Asunto, idincidente);
+
+
+
+
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
         }
     }
 }

@@ -9,8 +9,8 @@ namespace dominio
     public enum TipoUsuario
     {
         ADMIN = 1,
-        TELEFONISTA = 2,
-        SUPERVISOR = 3
+        SUPERVISOR = 2,
+        TELEFONISTA = 3
     }
     public class Empleado : Persona
     {
