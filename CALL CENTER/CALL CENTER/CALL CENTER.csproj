@@ -124,6 +124,7 @@
     <Content Include="Global.asax" />
     <Content Include="Incidentes.aspx" />
     <Content Include="ModificarEmpleado.aspx" />
+    <Content Include="ModificarIncidente.aspx" />
     <Content Include="ModificarPrioridades.aspx" />
     <Content Include="ModificarTipos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -311,6 +312,13 @@
     </Compile>
     <Compile Include="ModificarEmpleado.aspx.designer.cs">
       <DependentUpon>ModificarEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarIncidente.aspx.cs">
+      <DependentUpon>ModificarIncidente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarIncidente.aspx.designer.cs">
+      <DependentUpon>ModificarIncidente.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarPrioridades.aspx.cs">
       <DependentUpon>ModificarPrioridades.aspx</DependentUpon>

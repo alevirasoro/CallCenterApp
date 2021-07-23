@@ -120,15 +120,28 @@ namespace CALL_CENTER
         }
         public void reasignarUsuario(object sender, EventArgs e)
         {
-
+            
+            var argument = ((Button)sender).CommandArgument;
+            var accion = "reasignar";
+            Session.Add("IncidenteModificar", argument);
+            Session.Add("AccionIncidente", accion);
+            Response.Redirect("ModificarIncidente.aspx");
         }
         public void resolverIncidente(object sender, EventArgs e)
         {
-
+            var argument = ((Button)sender).CommandArgument;
+            var accion = "resolver";
+            Session.Add("IncidenteModificar", argument);
+            Session.Add("AccionIncidente", accion);
+            Response.Redirect("ModificarIncidente.aspx");
         }
         public void cerrarIncidente(object sender, EventArgs e)
         {
-
+            var argument = ((Button)sender).CommandArgument;
+            var accion = "cerrar";
+            Session.Add("IncidenteModificar", argument);
+            Session.Add("AccionIncidente", accion);
+            Response.Redirect("ModificarIncidente.aspx");
         }
     }
 }
