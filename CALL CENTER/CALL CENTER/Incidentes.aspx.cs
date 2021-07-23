@@ -76,13 +76,13 @@ namespace CALL_CENTER
                 incidente.Estado = new Estado("Abierto");
                 incidente.Estado.ID = 1;
                 incidente.Fecha = DateTime.Today;
-                incidente.Email = ddlUsuarios.DataTextField;
+                incidente.idEmpleado = int.Parse(ddlUsuarios.SelectedItem.Value);
                 string vacio = "sin comentario";
                 incidente.ComentarioCierre = (string) vacio;
 
                 negocio.agregar(incidente);
-             
-                btnEnviar_Mail();
+
+                btnEnviar_MailIncidenteNuevo(incidente.idEmpleado, incidente.Prioridad.ID, incidente.Tipo.ID);
             }
             catch (Exception ex)
             {
@@ -92,15 +92,22 @@ namespace CALL_CENTER
             }
             Response.Redirect("Incidentes.aspx");
         }
-        public void btnEnviar_Mail()
+        public void btnEnviar_MailIncidenteNuevo(int idempleado, int idprioridad, int idtipo)
         {
-            IncidenteNegocio mail = new IncidenteNegocio();
 
-            int id = int.Parse(idCliente.Text);
-            string Email = mail.traerMailCliente(id);
+            IncidenteNegocio Clie = new IncidenteNegocio();
+            Cliente client = new Cliente('5');
+            int idcliente = int.Parse(idCliente.Text);
+            client = Clie.traerDatosCliente(idcliente);
+      
             string Asunto = asunto.Text;
+         
+            int idincidente = Clie.traerIDIncidente(idcliente, idempleado, idprioridad, idtipo, Asunto);
             EmailService emailService = new EmailService();
-            emailService.armarCorreo(Email, id, Asunto);
+            emailService.armarCorreo(client.Email, client.Apellido, client.Nombre, idcliente, Asunto, idincidente);
+
+
+
 
             try
             {

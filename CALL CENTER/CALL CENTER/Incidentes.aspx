@@ -70,7 +70,7 @@
                 <div class="modal-body">
                     <%--<form>--%>
                     <div class="form-group">
-                        <label for="usu-name" class="col-form-label">Numero Cliente:</label>
+                        <label for="usu-name" class="col-form-label">Número Cliente:</label>
                         <!--<input type="text" class="form-control" id="clienteName"/>-->
                         <asp:TextBox ID="idCliente" class="form-control" type="text" runat="server"></asp:TextBox>
                     </div>

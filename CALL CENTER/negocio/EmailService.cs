@@ -22,12 +22,12 @@ namespace negocio
             server.Host = "smtp.gmail.com";
         }
 
-        public void armarCorreo(string emailDestino, int nrocliente, string asunto)
+        public void armarCorreo(string emailDestino, string apellido, string nombre, int nrocliente, string asunto, int idincidente)
         {
             email = new MailMessage();
             email.From = new MailAddress("noresponder@ecommerceprogramacioniii.com");
             email.To.Add(emailDestino);
-            email.Subject = "Incidente " + nrocliente;
+            email.Subject = "Incidente " + idincidente;
             email.IsBodyHtml = true;
             email.Body = "<h1> INCIDENTE NUMERO: </h1> <br>Incidente descripción: "+ asunto;
             //email.Body = cuerpo;

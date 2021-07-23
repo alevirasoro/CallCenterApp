@@ -52,7 +52,7 @@ namespace negocio
 
             try
             {
-                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', '"+ aux.idCliente +"', 2, '"+ aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID + "',  '" + aux.ComentarioCierre + "')";
+                string valores = "values ('"+ aux.Asunto +"', '"+ aux.Fecha +"', '"+ aux.idCliente + "','" + aux.idEmpleado + "', '" + aux.Prioridad.ID +"', '"+ aux.Tipo.ID +"', '"+ aux.Estado.ID + "',  '" + aux.ComentarioCierre + "')";
                 datos.setearConsulta("INSERT into INCIDENTES (Asunto, Fecha, IDCliente, IDEmpleado, IDPrioridad, IDTipo, IDEstado, Comentario)" + valores);
                 datos.ejecutarAccion();
             }
@@ -68,19 +68,51 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-        public string traerMailCliente(int id)
+        public int traerIDEmpleado(string mailempleado)
+        {
+            return 1;
+        }
+        public Cliente traerDatosCliente(int id)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 Cliente aux = new Cliente('5');
-                datos.setearConsulta("select c.Email email  from CLIENTES C WHERE C.ID = " + id);
+                datos.setearConsulta("select c.Email email, c.Nombre, c.Apellido  from CLIENTES C WHERE C.ID = " + id);
                 datos.ejecutarLectura();
                 if (datos.Lector.Read())
                 {
                     aux.Email = (string)datos.Lector["email"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Apellido = (string)datos.Lector["Apellido"];
                 }
-                return aux.Email;
+                return aux;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public int traerIDIncidente(int idcliente, int idempleado, int idprioridad, int idtipo, string asunto)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                Incidente aux = new Incidente();
+                datos.setearConsulta("select I.Numero from INCIDENTES I WHERE I.IDCliente = " + idcliente + " AND IDEmpleado = " + idempleado + " AND IDPrioridad = " + idprioridad + " AND IDTipo = " + idtipo + " AND Asunto = '" + asunto + "' ");
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    aux.Numero = (int)datos.Lector["Numero"];
+             
+                }
+                return aux.Numero;
             }
             catch (Exception ex)
             {
